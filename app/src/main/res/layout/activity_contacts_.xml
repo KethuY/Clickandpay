@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contactslayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/rel_search"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary"
+            android:paddingBottom="7dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:paddingTop="7dp"
+            android:visibility="visible" >
+
+            <RelativeLayout
+                android:id="@+id/edt_lay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:descendantFocusability="beforeDescendants"
+                android:background="@drawable/cureved_edittext"
+                android:orientation="horizontal" >
+
+                <!-- android:hint="Please enter contact number or name" -->
+
+                <com.soffice.clickandpay.UI.RobotoBoldTextView
+                    android:id="@+id/text_to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:paddingLeft="10dp"
+                    android:text="To : "
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <com.soffice.clickandpay.UI.RobotoRegularEditText
+                    android:id="@+id/SearchTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/edt_img"
+                    android:layout_toRightOf="@+id/text_to"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:ems="10"
+                    android:hint="Please enter contact name or number"
+                    android:inputType="text"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/edt_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:contentDescription="desc"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <com.soffice.clickandpay.UI.IndexableListView
+                        android:id="@+id/contactslistview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/white"
+                        android:divider="@null"
+                        android:transcriptMode="normal" >
+                    </com.soffice.clickandpay.UI.IndexableListView>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                android:id="@+id/noContacts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Fetching Contacts.."
+                android:textSize="16sp"
+                android:visibility="gone" />
+            <RelativeLayout
+                android:id="@+id/Enter_message"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:background="#fa3b3b"
+                android:visibility="gone">
+
+                <com.soffice.clickandpay.UI.RobotoRegularTextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Enter Message"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="14sp" />
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/buttonsbar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="To enter message"
+                    android:textColor="#FED87D"
+                    android:textSize="12dp"
+                    android:visibility="visible" />
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/buttonsbar_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="bottom"
+                    android:background="#ff5454"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="7dp"
+                    android:text="NEXT"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="14dp"
+                    android:visibility="visible" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map"
+        android:layout_below="@+id/nearme_search_cardview"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        app:liteMode="false"
+        app:uiCompass="false"
+        app:uiRotateGestures="true"
+        app:uiScrollGestures="true"
+        app:uiTiltGestures="true"
+        app:uiZoomControls="false"
+        app:uiZoomGestures="true"
+        tools:ignore="MissingPrefix">
+    </fragment>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/nearme_search_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="8dp"
+        android:layout_gravity="top|center_horizontal">
+        <com.soffice.clickandpay.UI.RobotoRegularAutoComplete
+            android:id="@+id/nearme_places_searchEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"/>
+    </android.support.v7.widget.CardView>
+</FrameLayout>

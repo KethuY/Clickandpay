@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rootView"
+    android:background="#F2F2F2"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/colorPrimary"></RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:layout_below="@+id/backLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/proceedAddMoney"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:background="@android:color/white"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="5dp">
+
+                        <com.soffice.clickandpay.UI.RobotoRegularTextView
+                            android:id="@+id/walletbalance_heading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Wallet Balance"
+                            android:textColor="@color/lightBlack"
+                            android:textSize="18sp" />
+
+                        <TableRow
+                            android:id="@+id/walletbancerow"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_below="@+id/walletbalance_heading"
+                            android:gravity="center">
+
+                            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@color/lightBlack"
+                                android:text="Total"
+                                android:textSize="14sp" />
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@mipmap/ic_home_screen_rupee" />
+
+                            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                                android:id="@+id/walletBal_Home"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:gravity="left|center_vertical"
+                                android:text="1999.50"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="36sp" />
+
+
+                        </TableRow>
+
+                        <RelativeLayout
+                            android:id="@+id/add_friend_row"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:padding="5dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:descendantFocusability="beforeDescendants"
+
+                            android:layout_below="@+id/walletbancerow"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/border">
+
+                            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentLeft="true"
+                                android:gravity="center"
+                                android:textColor="@color/colorPrimary"
+                                android:text="To : "
+                                android:textSize="16sp" />
+
+                            <com.soffice.clickandpay.UI.RobotoRegularEditText
+                                android:id="@+id/sendMoney_contact_num"
+                                android:layout_width="match_parent"
+                                android:background="@null"
+                                android:layout_height="wrap_content"
+                                android:hint="Enter Phone number"
+                                android:textColorHint="#E6CCCCCC"
+                                android:singleLine="true"
+                                android:textSize="16sp"
+                                android:textColor="@color/lightBlack"
+                                android:gravity="left"
+                                android:layout_centerInParent="true"
+                                android:inputType="number"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginRight="30dp"
+                                android:maxLength="10"/>
+
+                            <ImageView
+                                android:id="@+id/addContacts_IV"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentRight="true"
+                                android:src="@mipmap/add_contact_icon" />
+
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/amount_input_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:gravity="center"
+                            android:layout_below="@+id/add_friend_row"
+                            android:orientation="vertical"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:descendantFocusability="beforeDescendants"
+                            android:layout_marginTop="5dp"
+                            android:paddingTop="0dp">
+
+                            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Enter Amount"
+                                android:textColor="@color/lightBlack"
+                                android:textSize="16sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_marginTop="5dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@mipmap/ic_home_screen_rupee" />
+
+                                <com.soffice.clickandpay.UI.RobotoRegularEditText
+                                    android:id="@+id/sendMoney_EditText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:hint="0.00"
+                                    android:inputType="numberDecimal"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textColorHint="@color/colorPrimary"
+                                    android:textSize="25sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="80dp"
+                            android:layout_marginRight="80dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="#CCCCCC"
+                            android:layout_below="@+id/amount_input_layout"
+                            android:textSize="40sp" />
+                    </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="-3dp"
+                    android:background="@drawable/repeatdrawable"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/selectCardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/white"
+                android:visibility="visible">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:id="@+id/personal_layout"
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/personal_IV_sendMoney"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:src="@mipmap/personal_active"/>
+
+                        <com.soffice.clickandpay.UI.RobotoRegularTextView
+                            android:id="@+id/personal_TV_sendMoney"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Personal"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/home_layout"
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/houserent_IV_sendMoney"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:src="@mipmap/house_rent_inactive"/>
+
+                        <com.soffice.clickandpay.UI.RobotoRegularTextView
+                            android:id="@+id/houserent_TV_sendMoney"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="House Rent"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/shopping_layout"
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/shopping_IV_sendMoney"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:src="@mipmap/shoping_inactive"/>
+
+                        <com.soffice.clickandpay.UI.RobotoRegularTextView
+                            android:id="@+id/shopping_TV_sendMoney"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Shopping"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/utilities_layout"
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/utilities_IV_sendMoney"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:src="@mipmap/utilities_inactive"/>
+
+                        <com.soffice.clickandpay.UI.RobotoRegularTextView
+                            android:id="@+id/utilities_TV_sendMoney"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Utilities"/>
+                    </LinearLayout>
+
+
+
+                </TableRow>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="#F2F2F2"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:focusable="true"
+                    android:layout_marginTop="20dp"
+                    android:focusableInTouchMode="true"
+                    android:descendantFocusability="beforeDescendants"
+                    android:layout_height="60dp">
+                    <com.soffice.clickandpay.UI.RobotoRegularEditText
+                        android:id="@+id/other_desc_editText_sendMoney"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="left"
+                        android:textColor="@color/lightBlack"
+                        android:padding="5dp"
+                        android:textSize="15sp"
+                        android:textColorHint="#E6CCCCCC"
+                        android:hint="Other Description"
+                        android:background="@null"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <FrameLayout
+        android:id="@+id/loadinglayout"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_loading"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+        <ProgressBar
+            android:id="@+id/pbar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+    <com.soffice.clickandpay.UI.RobotoRegularTextView
+        android:id="@+id/Send_rupees"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="Send"
+        android:textSize="18sp"
+        android:textColor="@android:color/white" />
+</RelativeLayout>

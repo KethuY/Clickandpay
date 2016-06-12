@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/experienceHeadingLabel"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:background="@mipmap/help_us"
+                    android:layout_height="140dp"
+                    android:gravity="center"
+                    android:visibility="visible">
+
+                    <com.soffice.clickandpay.UI.RobotoRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Help us to improve"
+                        android:layout_marginTop="20dp"
+                        android:textSize="25sp"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <com.soffice.clickandpay.UI.RobotoRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="\@ Hard Rock Cafe"
+                        android:layout_marginTop="10dp"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"/>
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/editTextLayout"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_below="@+id/experienceHeadingLabel"
+                android:layout_height="120dp">
+
+                <com.soffice.clickandpay.UI.RobotoLightEditText
+                    android:id="@+id/share_feedback_EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:maxLength="250"
+                    android:hint="Share your feed back (250 characters)"
+                    android:textSize="14sp"
+                    android:background="@null"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/attachLayout"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_below="@+id/editTextLayout"
+                android:layout_height="30dp">
+
+                <com.soffice.clickandpay.UI.RobotoRegularTextView
+                    android:id="@+id/charsLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="250 characters left"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/separator"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_below="@+id/attachLayout"
+                android:background="@android:color/darker_gray"/>
+
+
+            <LinearLayout
+                android:id="@+id/bottonsLayout"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:layout_below="@+id/separator"
+                android:gravity="center"
+                android:layout_height="200dp">
+
+
+                <com.soffice.clickandpay.UI.RobotoRegularTextView
+                    android:id="@+id/submit_feedback_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Submit"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:textColor="@android:color/white"/>
+
+                <com.soffice.clickandpay.UI.RobotoRegularTextView
+                    android:id="@+id/cancel_feedback_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Cancel"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/border_colorprimary"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:textColor="@color/colorPrimary"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

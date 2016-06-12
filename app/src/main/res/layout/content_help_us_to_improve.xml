@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:descendantFocusability="beforeDescendants"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
+        android:id="@+id/backLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center_vertical"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_IV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            app:srcCompat="@drawable/ic_back" />
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/Label_Title_Activity"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:text="Help Us to Improve"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/save_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+            android:text="@string/send_txt"/>
+
+    </RelativeLayout>
+
+    <com.soffice.clickandpay.UI.RobotoRegularEditText
+        android:id="@+id/content_word"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="left"
+        android:padding="5dp"
+        android:textSize="14dp"
+        android:layout_marginTop="20dp"
+        android:singleLine="true"
+        android:textColor="@color/lightBlack"
+        android:textColorHint="#E6CCCCCC"
+        android:layout_below="@+id/backLayout"
+        android:hint="Write Something..."
+        android:background="@drawable/roundedcorners_white"
+        />
+
+    <com.soffice.clickandpay.UI.RobotoLightTextView
+        android:id="@+id/dummy_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/content_word"
+        android:gravity="center"
+        android:textColor="@color/lightBlack"
+        android:layout_marginTop="10dp"
+        android:text="If you have something to say that doestn't fit here,"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@+id/dummy_text">
+
+    <com.soffice.clickandpay.UI.RobotoLightTextView
+        android:id="@+id/dummy_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/lightBlack"
+        android:text="please shoot us an email at"/>
+
+    <com.soffice.clickandpay.UI.RobotoLightTextView
+        android:id="@+id/writeUs_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:text=" reachus@soffice.in"/>
+    </LinearLayout>
+
+</RelativeLayout>

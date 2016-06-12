@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
+        android:id="@+id/backLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_IV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:padding="8dp"
+            app:srcCompat="@drawable/ic_back"/>
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:text="Settings"
+            android:textColor="@android:color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/backLayout"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/suggest_a_store_row"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:visibility="visible"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@mipmap/suggest_a_store"/>
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:gravity="center_vertical"
+                    android:text="Suggest a Store"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+
+                <ImageView
+                    android:id="@+id/userName_edit"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/edit_go"/>
+            </RelativeLayout>
+
+            <!--<RelativeLayout
+                android:id="@+id/notification_preferences_row"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/suggest_a_store_row"
+                android:layout_height="40dp"
+                android:visibility="visible"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@mipmap/notification"/>
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:gravity="center_vertical"
+                    android:text="Notification Preference"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+
+
+                <ImageView
+                    android:id="@+id/emailId_edit"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/edit_go"/>
+            </RelativeLayout>-->
+
+            <RelativeLayout
+                android:id="@+id/helpUsToImProve_row"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/suggest_a_store_row"
+                android:layout_height="40dp"
+                android:visibility="visible"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@mipmap/help_us1"/>
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:gravity="center_vertical"
+                    android:text="Help us to Improve"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+
+                <ImageView
+                    android:id="@+id/phoneNo_edit"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/edit_go"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rateus_row"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/helpUsToImProve_row"
+                android:layout_height="40dp"
+                android:visibility="visible"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@mipmap/rate_us"/>
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:gravity="center_vertical"
+                    android:text="Rate us on Play Store"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+                <ImageView
+                    android:id="@+id/dob_edit"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/edit_go"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
