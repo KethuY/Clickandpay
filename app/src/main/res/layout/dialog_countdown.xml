@@ -1,0 +1,65 @@
+<?xml version="1" encoding="utf-8"?>
+<RelativeLayout android:background="@color/transparent_black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+        android:id="@+id/resetlayout_one"
+        android:visibility="visible"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_centerInParent="true"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="2dp"
+        app:cardUseCompatPadding="true"
+        app:cardPreventCornerOverlap="true"
+        app:contentPadding="0dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                android:textSize="16sp"
+                android:textColor="@color/lightBlack"
+                android:gravity="center"
+                android:id="@+id/send_title"
+                android:background="#ffe1e1e1"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:text="@string/countdown_title" />
+            <com.soffice.clickandpay.UI.RobotoLightTextView
+                android:textSize="14sp"
+                android:textColor="@color/text_color"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/countdown_msg" />
+            <com.soffice.clickandpay.UI.RobotoBoldTextView
+                android:textSize="14sp"
+                android:textColor="@color/lightBlack"
+                android:gravity="center"
+                android:id="@+id/countdown_timer_tv"
+                android:padding="10dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp" />
+            <View
+                android:background="@color/white_disabled"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp" />
+            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                android:textColor="@color/red_end_color"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/countdown_cancel_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/cancel_button" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

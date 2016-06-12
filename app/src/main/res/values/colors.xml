@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="app_bg">#fff2f2f2</color>
+    <color name="button_disabled">#ff595858</color>
+    <color name="button_focused">#ff92171b</color>
+    <color name="button_normal">#ffd12127</color>
+    <color name="button_pressed">#ff92171b</color>
+    <color name="colorAccent">#ffff4081</color>
+    <color name="colorPrimary">#ffd12127</color>
+    <color name="colorPrimaryDark">#ffbf0e14</color>
+    <color name="darker_gray">#ffe8e8e8</color>
+    <color name="gray">#ffa5a5a5</color>
+    <color name="green_color">#ff21b121</color>
+    <color name="icon_disable_state">#ffb8b8b8</color>
+    <color name="keypad_bg_color">#fffbfbfb</color>
+    <color name="lightBlack">#ff101010</color>
+    <color name="card_bg">#ff777777</color>
+    <color name="light_gray">#fff7f7f7</color>
+    <color name="lighter_gray">#9f9f9f</color>
+    <color name="red_center_color">#ffb4080d</color>
+    <color name="red_end_color">#ffa80006</color>
+    <color name="red_start_color">#ffc7141a</color>
+    <color name="ring_color">#ff212121</color>
+    <color name="text_color">#ff1a1a1a</color>
+    <color name="text_disable_red">#ffeda6a9</color>
+    <color name="transparent_black">#bf000000</color>
+    <color name="transpirant_fields">#1affffff</color>
+    <color name="white">#ffffffff</color>
+    <color name="white_disabled">#ffafaeae</color>
+    <color name="white_pressed">#ffc5c5c5</color>
+</resources>

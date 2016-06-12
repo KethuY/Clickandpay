@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:id="@+id/box_main"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:background="#FFFFFF"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <com.soffice.clickandpay.UI.RobotoRegularTextView
+            android:id="@+id/send_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="@color/lightBlack"
+            android:background="#E1E1E1"/>
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/send_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:textColor="@color/lightBlack"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/send_cancel_btn"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/cancel_button"
+                android:textSize="16sp"
+                android:layout_marginRight="-3dp"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:textColor="@android:color/white"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/send_add_btn"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/add_money"
+                android:textSize="16sp"
+                android:layout_marginLeft="-3dp"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

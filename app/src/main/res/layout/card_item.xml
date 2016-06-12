@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded_corner">
+
+
+    <ImageView
+        android:id="@+id/card_logo"
+        android:layout_width="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/visa"
+        android:layout_height="wrap_content" />
+
+    <com.soffice.clickandpay.UI.RobotoBoldTextView
+        android:id="@+id/bank_name"
+        android:textColor="#FFF"
+        android:layout_width="wrap_content"
+        android:text="ICICI Bank - "
+        android:layout_alignBaseline="@+id/card_logo"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content" />
+
+    <com.soffice.clickandpay.UI.RobotoBoldTextView
+        android:id="@+id/card_type"
+        android:layout_toRightOf="@+id/bank_name"
+        android:layout_alignBaseline="@+id/bank_name"
+        android:textColor="#FFF"
+        android:layout_width="wrap_content"
+        android:textSize="14sp"
+        android:text="Credit Card"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/card_num_set"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_below="@+id/card_logo"
+        android:layout_height="wrap_content">
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/num_part1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#FFF"
+            android:text="4242"
+            android:textSize="16sp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content" />
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/num_part2"
+            android:layout_width="0dp"
+            android:textColor="#FFF"
+            android:layout_weight="1"
+            android:text="xxxx"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/num_part3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#FFF"
+            android:text="xxxx"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/num_part4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#FFF"
+            android:text="4242"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <com.soffice.clickandpay.UI.RobotoRegularTextView
+        android:id="@+id/customer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        android:textSize="18sp"
+        android:layout_below="@+id/card_num_set"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Kartheek"/>
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <me.dm7.barcodescanner.zxing.ZXingScannerView
+        android:id="@+id/mscannerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+    </me.dm7.barcodescanner.zxing.ZXingScannerView>
+
+    <RelativeLayout
+        android:id="@+id/scanner_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:background="#99000000">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/c_n_p_logo_whilte"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/flash_toggle"
+        android:layout_width="30dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_height="30dp"/>
+
+    <!--<ImageView
+        android:id="@+id/camera_toggle"
+        android:layout_width="30dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_height="30dp"
+        android:src="@mipmap/camera_qr_code"/>-->
+
+
+    <RelativeLayout
+        android:id="@+id/enter_manual"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:background="#99000000">
+        <ImageView
+            android:id="@+id/manual"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/type_code_manually_icon"/>
+        <com.soffice.clickandpay.UI.RobotoRegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type Code Manually"
+            android:layout_marginLeft="5dp"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:layout_toRightOf="@+id/manual"/>
+    </RelativeLayout>
+</RelativeLayout>

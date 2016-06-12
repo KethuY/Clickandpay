@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
+        android:id="@+id/backLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:text="Payment Details"
+            android:textColor="@android:color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+
+        <ImageView
+            android:id="@+id/back_IV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:padding="14dp"
+            app:srcCompat="@drawable/ic_close" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_centerInParent="true">
+        <LinearLayout
+            android:id="@+id/receipt_strip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/repeatdrawable"
+            android:focusable="true"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:focusableInTouchMode="true"
+            android:layout_gravity="bottom">
+        </LinearLayout>
+    <android.support.v7.widget.CardView
+        android:id="@+id/proceedAddMoneyCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        app:cardCornerRadius="3dp"
+        android:layout_marginBottom="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="3dp">
+
+        <LinearLayout
+            android:id="@+id/proceedAddMoney"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/storeLogo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_vertical" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginStart="3dp"
+                android:gravity="left|center"
+                android:orientation="vertical">
+
+                <com.soffice.clickandpay.UI.RobotoRegularTextView
+                    android:id="@+id/storeName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp" />
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/codeEntered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="14sp" />
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/address1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/address2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="vertical" >
+
+            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:layout_margin="15dp"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_toLeftOf="@+id/addMoney_TextView"
+                android:src="@mipmap/ic_home_screen_rupee" />
+
+            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                android:id="@+id/addMoney_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="0.00"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:layout_alignParentRight="true"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="25sp" />
+
+            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/darker_gray"
+                android:textSize="40sp" />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:tag="checked"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/ic_checkedeckbox"/>
+
+            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                android:id="@+id/fromWallet_Checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/checkBox"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/colorPrimary"
+                android:padding="5dp"
+                android:text="Wallet Balance"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp"
+                android:layout_toLeftOf="@+id/cuttingMoney_TextView"
+                android:layout_margin="5dp"
+                android:src="@mipmap/ic_home_screen_rupee" />
+
+            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                android:id="@+id/cuttingMoney_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="0.00"
+                android:layout_marginRight="10dp"
+                android:background="@null"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    </FrameLayout>
+    <!--<LinearLayout
+        android:id="@+id/selectCardLayout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+       <FrameLayout
+            android:id="@+id/container_body"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="10dp">
+
+            <com.soffice.clickandpay.UI.PagerSlidingTabStrip
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimary"
+                app:pstsShouldExpand="false"
+                app:pstsTabTextStyle="normal"
+                app:pstsTabTextSize="14sp"
+                app:pstsIndicatorHeight="1dp"
+                android:layout_height="40dp" />
+
+            <com.astuetz.PagerSlidingTabStrip
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:pstsShouldExpand="false"
+                android:textSize="11sp"
+                app:pstsUnderlineHeight="0dp"
+                app:pstsIndicatorColor="@android:color/white"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                app:pstsDividerColor="@color/colorPrimary"
+                app:pstsIndicatorHeight="1dp"></com.astuetz.PagerSlidingTabStrip>&ndash;&gt;
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager_paymentDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@android:color/white" >
+                </android.support.v4.view.ViewPager>
+               <ProgressBar
+                   android:id="@+id/pbar"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"
+                   android:layout_gravity="center"
+                   android:visibility="gone"/>
+        </FrameLayout>
+    </LinearLayout>-->
+
+    <com.soffice.clickandpay.UI.RobotoRegularTextView
+        android:id="@+id/pay_rupees"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:text="Pay \u20B9 "
+        android:textColor="@color/colorPrimary" />
+</RelativeLayout>

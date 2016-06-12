@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/main_send_email_invoice"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/box_main"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_centerInParent="true"
+        android:background="#FFFFFF"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:descendantFocusability="beforeDescendants"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/label_forgot_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please enter an email ID. \nYour invoice details will be sent to it."
+            android:layout_below="@+id/label_forgot_box"
+            android:layout_marginTop="20dp"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:textColor="@color/lightBlack"/>
+
+        <com.soffice.clickandpay.UI.RobotoRegularEditText
+            android:id="@+id/forgot_email_or_phone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/label_forgot_desc"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/roundedcorners_white"
+            android:textSize="15sp"
+            android:textColorHint="#E6CCCCCC"
+            android:hint="Email address"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textColor="@color/lightBlack"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#FFFFFF"
+            android:layout_alignParentBottom="true">
+
+            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                android:id="@+id/cancel_button_send_invoice"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginRight="0.5dp"
+                android:layout_height="50dp"
+                android:text="Cancel"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:background="@color/colorPrimary"/>
+            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                android:id="@+id/ok_button_send_invocie"
+                android:layout_width="0dp"
+                android:layout_marginLeft="0.5dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:text="Ok"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:background="@color/colorPrimary"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

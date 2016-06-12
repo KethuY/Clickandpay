@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="?attr/listPreferredItemHeight">
+    <com.soffice.clickandpay.UI.RobotoBoldTextView
+        android:id="@+id/navigation_usernametv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_gravity="left|start|center_vertical"
+        android:layout_marginStart="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:layout_marginLeft="16dp"/>
+
+    <com.soffice.clickandpay.UI.RobotoBoldTextView
+        android:id="@+id/navigation_usernameedittv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_gravity="right|end|center_vertical"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:textStyle="bold" />
+</FrameLayout>

@@ -1,0 +1,37 @@
+<?xml version="1" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.CoordinatorLayout 
+        android:id="@+id/mycoordinator"
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent">
+        <LinearLayout 
+            android:orientation="vertical" 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include layout="@layout/toolbar" />
+            <android.support.design.widget.TabLayout 
+                android:id="@+id/notifications_main_pager_tabs" 
+                android:background="@drawable/bg_notification_tabs" 
+                android:layout_width="match_parent"
+                android:layout_height="40dp" 
+                android:layout_margin="15dp"
+                app:tabIndicatorColor="@android:color/transparent"
+                app:tabIndicatorHeight="2dp"
+                app:tabBackground="@drawable/selector_notification_tabs"
+                app:tabMode="fixed"
+                app:tabGravity="fill"
+                app:tabTextColor="@color/red_end_color"
+                app:tabSelectedTextColor="@android:color/white" />
+            <android.support.v4.view.ViewPager
+                android:id="@+id/notifications_main_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>
+    <include layout="@layout/nav_slider_menu" />
+</android.support.v4.widget.DrawerLayout>

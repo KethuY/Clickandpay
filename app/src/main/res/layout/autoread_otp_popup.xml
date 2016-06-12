@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:orientation="vertical">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/roundedcorners_white"
+        android:layout_margin="30dp">
+
+        <com.soffice.clickandpay.UI.RobotoRegularTextView
+            android:id="@+id/label_otp_box"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Auto Verify OTP"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="@color/lightBlack"
+            android:background="#E1E1E1"/>
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/label_otp_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sit back &amp; Relax! \n While we verify your moble numbr"
+            android:layout_below="@+id/label_otp_box"
+            android:layout_marginTop="10dp"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:textColor="@color/lightBlack"/>
+
+        <com.soffice.clickandpay.UI.RobotoRegularTextView
+            android:id="@+id/label_time_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="(00 : 25)"
+            android:layout_below="@+id/label_otp_desc"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textColor="@color/lightBlack"/>
+
+        <com.soffice.clickandpay.UI.RobotoRegularTextView
+            android:id="@+id/button_otp_enter_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Cancel"
+            android:textSize="16sp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

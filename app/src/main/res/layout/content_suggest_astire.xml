@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:descendantFocusability="beforeDescendants"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
+        android:id="@+id/backLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center_vertical"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_IV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            app:srcCompat="@drawable/ic_back" />
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/Label_Title_Activity"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:text="Suggest A Store"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"/>
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/save_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+            android:text="@string/send_txt"/>
+
+    </RelativeLayout>
+
+    <com.soffice.clickandpay.UI.RobotoRegularEditText
+        android:id="@+id/storeName_ET"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="5dp"
+        android:textColorHint="#E6CCCCCC"
+        android:singleLine="true"
+        android:textColor="@color/lightBlack"
+        android:textSize="14sp"
+        android:layout_below="@+id/backLayout"
+        android:background="@drawable/roundedcorners_white"
+        />
+
+    <com.soffice.clickandpay.UI.RobotoRegularEditText
+        android:id="@+id/locality_ET"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColorHint="#E6CCCCCC"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="5dp"
+        android:layout_marginBottom="15dp"
+        android:singleLine="true"
+        android:textColor="@color/lightBlack"
+        android:textSize="14sp"
+        android:layout_below="@+id/storeName_ET"
+        android:background="@drawable/roundedcorners_white"
+        />
+
+    <com.soffice.clickandpay.UI.RobotoRegularEditText
+        android:id="@+id/city_ET"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/lightBlack"
+        android:singleLine="true"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="5dp"
+        android:textColorHint="#E6CCCCCC"
+        android:layout_below="@+id/locality_ET"
+        android:background="@drawable/roundedcorners_white"
+        android:textSize="14sp"
+        />
+
+    <com.soffice.clickandpay.UI.RobotoRegularEditText
+        android:id="@+id/additional_info_ET"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:paddingTop="5dp"
+        android:textColorHint="#E6CCCCCC"
+        android:gravity="left"
+        android:maxLines="5"
+        android:textColor="@color/lightBlack"
+        android:paddingLeft="5dp"
+        android:textSize="14sp"
+        android:hint="Additional information (ex. Full address, Landmark, Telephone number)"
+        android:layout_below="@+id/city_ET"
+        android:background="@drawable/roundedcorners_white"
+        />
+
+</RelativeLayout>
