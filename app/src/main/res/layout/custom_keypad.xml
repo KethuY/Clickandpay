@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/passKeyRow1_Layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/key1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="15dp"
+            android:tag="1"
+            android:text="1"
+            android:textColor="@color/red_end_color"
+            android:textSize="35sp" />
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/key2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="0.6"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="15dp"
+            android:tag="2"
+            android:text="2"
+            android:textColor="@color/red_end_color"
+            android:textSize="35sp" />
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/key3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="15dp"
+            android:tag="3"
+            android:text="3"
+            android:textColor="@color/red_end_color"
+            android:textSize="35sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/passKeyRow2_Layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/key4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="15dp"
+            android:tag="4"
+            android:text="4"
+            android:textColor="@color/red_end_color"
+            android:textSize="35sp" />
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/key5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="0.6"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="15dp"
+            android:tag="5"
+            android:text="5"
+            android:textColor="@color/red_end_color"
+            android:textSize="35sp" />
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/key6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="15dp"
+            android:tag="6"
+            android:text="6"
+            android:textColor="@color/red_end_color"
+            android:textSize="35sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/passKeyRow4_Layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/key7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="15dp"
+            android:tag="7"
+            android:text="7"
+            android:textColor="@color/red_end_color"
+            android:textSize="35sp" />
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/key8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="0.6"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="15dp"
+            android:tag="8"
+            android:text="8"
+            android:textColor="@color/red_end_color"
+            android:textSize="35sp" />
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/key9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="15dp"
+            android:tag="9"
+            android:text="9"
+            android:textColor="@color/red_end_color"
+            android:textSize="35sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/passKeyRow3_Layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/key10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="20dp"
+            android:textColor="@color/red_end_color"
+            android:textSize="35sp" />
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/key0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_weight="0.6"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="15dp"
+            android:tag="0"
+            android:text="0"
+            android:textColor="@color/red_end_color"
+            android:textSize="35sp" />
+
+        <ImageView
+            android:id="@+id/backSpace"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_action_backspace" />
+    </LinearLayout>
+
+</LinearLayout>

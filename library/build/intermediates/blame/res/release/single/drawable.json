@@ -1,6 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\Surya\\Desktop\\Click&Pay\\library\\build\\intermediates\\res\\merged\\release\\drawable\\vpi__tab_indicator.xml",
-        "source": "C:\\Users\\Surya\\Desktop\\Click&Pay\\library\\src\\main\\res\\drawable\\vpi__tab_indicator.xml"
+        "merged": "/home/anitha/Music/cnpApplication/library/build/intermediates/res/merged/release/drawable/vpi__tab_indicator.xml",
+        "source": "/home/anitha/Music/cnpApplication/library/src/main/res/drawable/vpi__tab_indicator.xml"
+    },
+    {
+        "merged": "/home/anitha/Music/cnpApplication/C:\\Users\\Surya\\Desktop\\Click&Pay\\library\\build\\intermediates\\res\\merged\\release\\drawable\\vpi__tab_indicator.xml",
+        "source": "/home/anitha/Music/cnpApplication/C:\\Users\\Surya\\Desktop\\Click&Pay\\library\\src\\main\\res\\drawable\\vpi__tab_indicator.xml"
     }
 ]

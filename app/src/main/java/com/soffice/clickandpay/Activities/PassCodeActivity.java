@@ -20,7 +20,6 @@ import com.soffice.clickandpay.ClickandPay;
 import com.soffice.clickandpay.NetWork.JsonRequester;
 import com.soffice.clickandpay.NetWork.TaskListner;
 import com.soffice.clickandpay.NetWork.Urls;
-import com.soffice.clickandpay.Pojo.GetProfileResonseModel;
 import com.soffice.clickandpay.Pojo.SetPassCodeResponseModel;
 import com.soffice.clickandpay.R;
 import com.soffice.clickandpay.Utilty.Constants;
@@ -42,7 +41,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
     JsonRequester requester;
     Urls urls;
     ImageView passCode1, passCode2, passCode3, passCode4, backSpace, back_IV;
-    TextView key1, key2, key3, key4, key5, key6, key7, key8, key9, key0, tv1;
+    TextView key1, key2, key3, key4, key5, key6, key7, key8, key9, key0, tv1, tv3;
     View.OnClickListener clickEventOnKeys;
     View.OnClickListener clickEventOnKeysConform;
     View.OnClickListener backspaceEvent;
@@ -50,26 +49,31 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
     Handler handler = new Handler();
     LinearLayout forgot_passcode_layout;
     ProgressBar Pbar;
-    boolean isRemoving=false;
-    private final String REQUEST_TAG="pass_request";
+    boolean isRemoving = false;
+    private final String REQUEST_TAG = "pass_request";
     CoordinatorLayout coordinatorLayout;
+    int userStatus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pass_code);
-        coordinatorLayout= (CoordinatorLayout) findViewById(R.id.mycoordinator);
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.mycoordinator);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().hide();
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        Pbar= (ProgressBar) findViewById(R.id.pbar);
-        Pbar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+        Pbar = (ProgressBar) findViewById(R.id.pbar);
+        Pbar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         clickpay = (ClickandPay) getApplicationContext();
         session = clickpay.getSession();
         className = getLocalClassName();
         requester = new JsonRequester(this);
         urls = clickpay.getUrls();
         fromActivity = getIntent().getStringExtra("fromActivity");
+        if (getIntent().hasExtra("user_status")) {
+            userStatus = Integer.parseInt(getIntent().getStringExtra("user_status"));
+        }
 
         passCode1 = (ImageView) findViewById(R.id.passcode1);
         passCode2 = (ImageView) findViewById(R.id.passcode2);
@@ -78,6 +82,8 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         backSpace = (ImageView) findViewById(R.id.backSpace);
         back_IV = (ImageView) findViewById(R.id.back_IV);
         tv1 = (TextView) findViewById(R.id.tv1);
+        tv3 = (TextView) findViewById(R.id.tv3);
+
 
         key1 = (TextView) findViewById(R.id.key1);
         key2 = (TextView) findViewById(R.id.key2);
@@ -95,9 +101,9 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         forgot_passcode_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(PassCodeActivity.this,ForgetPassWordOrPassCodeActivity.class);
-                intent.putExtra("which",2);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(PassCodeActivity.this, ForgetPassWordOrPassCodeActivity.class);
+                intent.putExtra("which", 2);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
@@ -106,13 +112,20 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
             back_IV.setVisibility(View.GONE);
             tv1.setText("Enter Passcode");
             forgot_passcode_layout.setVisibility(View.VISIBLE);
-        }else if(fromActivity.equalsIgnoreCase("Verification")){
+        } else if (fromActivity.equalsIgnoreCase("Verification")) {
             back_IV.setVisibility(View.GONE);
-        }else if(fromActivity.equalsIgnoreCase("Main")){
+            if (userStatus == 1) {
+                tv1.setText("Enter Passcode");
+                tv3.setVisibility(View.GONE);
+            } else {
+                tv1.setText("Enter New Passcode");
+                tv3.setVisibility(View.VISIBLE);
+            }
+        } else if (fromActivity.equalsIgnoreCase("Main")) {
             back_IV.setVisibility(View.GONE);
             tv1.setText("Enter Passcode");
             forgot_passcode_layout.setVisibility(View.VISIBLE);
-        }else if(fromActivity.equalsIgnoreCase("Login_veri")){
+        } else if (fromActivity.equalsIgnoreCase("Login_veri")) {
             back_IV.setVisibility(View.VISIBLE);
         }
 
@@ -130,19 +143,19 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                         passCode3.setImageResource(R.drawable.passcode_fill);
                     } else if (enteredCode.length() == 4) {
                         passCode4.setImageResource(R.drawable.passcode_fill);
-                        if (fromActivity.equalsIgnoreCase("Verification") || fromActivity.equalsIgnoreCase("Login_veri")) {
+                        if ((fromActivity.equalsIgnoreCase("Verification") && userStatus == 0) || fromActivity.equalsIgnoreCase("Login_veri")) {
                             handler.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
                                     prepareForConformPasscode();
                                 }
                             }, 500);
-                        } else if (fromActivity.equalsIgnoreCase("Splash") || fromActivity.equalsIgnoreCase("Main") || fromActivity.equalsIgnoreCase("Login")) {
+                        } else if (fromActivity.equalsIgnoreCase("Splash") || fromActivity.equalsIgnoreCase("Main") || fromActivity.equalsIgnoreCase("Login") || userStatus == 1) {
                             Map<String, String> params = new HashMap<String, String>();
                             params.put("authkey", session.getAuthKey());
                             params.put("passcode", Utils.EncryptData(enteredCode));
                             params.put("mid", clickpay.getDeviceId(getApplicationContext()));
-                            params.put("devicetype","android");
+                            params.put("devicetype", "android");
                             requester.StringRequesterFormValues(urls.check_passcode, Request.Method.POST, className, urls.check_passcode_methodName, params, REQUEST_TAG);
                             disableKeys();
                             tv1.setText("Please wait..");
@@ -156,7 +169,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         clickEventOnKeysConform = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (conformEnteredCode.length()<4) {
+                if (conformEnteredCode.length() < 4) {
                     conformEnteredCode = "" + conformEnteredCode + v.getTag();
                     Display.DisplayLogI("ADITYA", "CLICK CONFORM PASSCODE " + conformEnteredCode);
                     if (conformEnteredCode.length() == 1) {
@@ -183,7 +196,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
 //                        enteredCode = "";
                             conformEnteredCode = "";
                             prepareForConformPasscode();
-                            Display.DisplaySnackbar(PassCodeActivity.this,coordinatorLayout, "Pass Code does not match..!!");
+                            Display.DisplaySnackbar(PassCodeActivity.this, coordinatorLayout, "Pass Code does not match..!!");
                         }
                     }
                 }
@@ -193,8 +206,8 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         backspaceEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isRemoving) {
-                    isRemoving=true;
+                if (!isRemoving) {
+                    isRemoving = true;
                     backSpace.setEnabled(false);
                     enteredCode = removeLastChar(enteredCode);
                     Display.DisplayLogI("ADITYA", "CLICK BACKSPACE " + enteredCode);
@@ -217,7 +230,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                         passCode4.setImageResource(R.drawable.passcode_empty);
 
                     }
-                    isRemoving=false;
+                    isRemoving = false;
                     backSpace.setEnabled(true);
                 }
             }
@@ -264,9 +277,9 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         back_IV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tv1.getText().toString().equalsIgnoreCase("Enter New Passcode")){
+                if (tv1.getText().toString().equalsIgnoreCase("Enter New Passcode")) {
                     if (getIntent().getStringExtra("fromActivity") != null && (getIntent().getStringExtra("fromActivity").equalsIgnoreCase("Verification") || fromActivity.equalsIgnoreCase("Login_veri"))) {
-                        Intent i = new Intent(PassCodeActivity.this, LoginActivity.class);
+                        Intent i = new Intent(PassCodeActivity.this, MobileRegistrationActivity.class);
                         i.putExtra("fromActivity", "PassCode");
                         startActivity(i);
                         finish();
@@ -274,33 +287,33 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                         finish();
                     }
                     enteredCode = "";
-                }else if(tv1.getText().toString().equalsIgnoreCase("Re-Enter New Passcode")){
-                        tv1.setText("Enter New Passcode");
-
-                    if(fromActivity.equalsIgnoreCase("Login_veri")){
+                } else if (tv1.getText().toString().equalsIgnoreCase("Re-Enter New Passcode")) {
+                    tv1.setText("Enter New Passcode");
+                    tv3.setVisibility(View.VISIBLE);
+                    if (fromActivity.equalsIgnoreCase("Login_veri")) {
                         back_IV.setVisibility(View.VISIBLE);
-                    }else {
+                    } else {
                         back_IV.setVisibility(View.GONE);
                     }
 
 
-                        passCode1.setImageResource(R.drawable.passcode_empty);
-                        passCode2.setImageResource(R.drawable.passcode_empty);
-                        passCode3.setImageResource(R.drawable.passcode_empty);
-                        passCode4.setImageResource(R.drawable.passcode_empty);
+                    passCode1.setImageResource(R.drawable.passcode_empty);
+                    passCode2.setImageResource(R.drawable.passcode_empty);
+                    passCode3.setImageResource(R.drawable.passcode_empty);
+                    passCode4.setImageResource(R.drawable.passcode_empty);
 
-                        backSpace.setOnClickListener(backspaceEvent);
+                    backSpace.setOnClickListener(backspaceEvent);
 
-                        key1.setOnClickListener(clickEventOnKeys);
-                        key2.setOnClickListener(clickEventOnKeys);
-                        key3.setOnClickListener(clickEventOnKeys);
-                        key4.setOnClickListener(clickEventOnKeys);
-                        key5.setOnClickListener(clickEventOnKeys);
-                        key6.setOnClickListener(clickEventOnKeys);
-                        key7.setOnClickListener(clickEventOnKeys);
-                        key8.setOnClickListener(clickEventOnKeys);
-                        key9.setOnClickListener(clickEventOnKeys);
-                        key0.setOnClickListener(clickEventOnKeys);
+                    key1.setOnClickListener(clickEventOnKeys);
+                    key2.setOnClickListener(clickEventOnKeys);
+                    key3.setOnClickListener(clickEventOnKeys);
+                    key4.setOnClickListener(clickEventOnKeys);
+                    key5.setOnClickListener(clickEventOnKeys);
+                    key6.setOnClickListener(clickEventOnKeys);
+                    key7.setOnClickListener(clickEventOnKeys);
+                    key8.setOnClickListener(clickEventOnKeys);
+                    key9.setOnClickListener(clickEventOnKeys);
+                    key0.setOnClickListener(clickEventOnKeys);
                     enteredCode = "";
                 }
             }
@@ -321,6 +334,8 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         Display.DisplayLogI("ADITYA", "CLICK prepareForConformPasscode ");
 
         tv1.setText("Re-Enter New Passcode");
+        tv3.setVisibility(View.GONE);
+
 
         passCode1.setImageResource(R.drawable.passcode_empty);
         passCode2.setImageResource(R.drawable.passcode_empty);
@@ -347,9 +362,9 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
     public void onBackPressed() {
         super.onBackPressed();
 
-        if(tv1.getText().toString().equalsIgnoreCase("Enter New Passcode")){
+        if (tv1.getText().toString().equalsIgnoreCase("Enter New Passcode")) {
             if (getIntent().getStringExtra("fromActivity") != null && getIntent().getStringExtra("fromActivity").equalsIgnoreCase("Verification")) {
-                Intent i = new Intent(PassCodeActivity.this, LoginActivity.class);
+                Intent i = new Intent(PassCodeActivity.this, MobileRegistrationActivity.class);
                 i.putExtra("fromActivity", "PassCode");
                 startActivity(i);
                 finish();
@@ -357,7 +372,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                 finish();
             }
             enteredCode = "";
-        }else if(tv1.getText().toString().equalsIgnoreCase("Re-Enter New Passcode")){
+        } else if (tv1.getText().toString().equalsIgnoreCase("Re-Enter New Passcode")) {
             tv1.setText("Enter New Passcode");
 
             passCode1.setImageResource(R.drawable.passcode_empty);
@@ -426,7 +441,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         passCode2.setImageResource(R.drawable.passcode_empty);
         passCode3.setImageResource(R.drawable.passcode_empty);
         passCode4.setImageResource(R.drawable.passcode_empty);
-        enteredCode="";
+        enteredCode = "";
     }
 
     public void disableKeys() {
@@ -464,7 +479,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         Display.DisplayLogI("ADITYA", "" + response);
         try {
             if (cd == 00) {
-                Display.DisplaySnackbar(this,coordinatorLayout,"Oops.. Something went wrong. Please try again");
+                Display.DisplaySnackbar(this, coordinatorLayout, "Oops.. Something went wrong. Please try again");
                 enableKeys();
             } else if (cd == 05) {
                 if (_className.equalsIgnoreCase(className) && _methodName.equalsIgnoreCase(urls.passcode_methodName)) {
@@ -477,13 +492,12 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                         session.setUserName(model.Username);
                         session.setCustomerIdentifier(model.customer_identifier);
                         LaunchNextActivity();
-                    } else if(model.code.equalsIgnoreCase("205")) {
+                    } else if (model.code.equalsIgnoreCase("205")) {
                         ClickandPay.getInstance().RedirectToLogin();
-                        Display.DisplaySnackbar(this,coordinatorLayout,model.message);
-                    }
-                    else{
+                        Display.DisplaySnackbar(this, coordinatorLayout, model.message);
+                    } else {
                         tv1.setText("Enter Passcode");
-                        Display.DisplaySnackbar(PassCodeActivity.this,coordinatorLayout, model.message);
+                        Display.DisplaySnackbar(PassCodeActivity.this, coordinatorLayout, model.message);
                         enableKeys();
                     }
                 }
@@ -498,12 +512,12 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                         session.setUserName(model.Username);
                         session.setCustomerIdentifier(model.customer_identifier);
                         LaunchNextActivity();
-                    } else if(model.code.equalsIgnoreCase("205")) {
+                    } else if (model.code.equalsIgnoreCase("205")) {
                         ClickandPay.getInstance().RedirectToLogin();
-                        Display.DisplaySnackbar(this,coordinatorLayout,model.message);
-                    }else {
+                        Display.DisplaySnackbar(this, coordinatorLayout, model.message);
+                    } else {
                         tv1.setText("Enter Passcode");
-                        Display.DisplaySnackbar(PassCodeActivity.this,coordinatorLayout,model.message);
+                        Display.DisplaySnackbar(PassCodeActivity.this, coordinatorLayout, model.message);
                         enableKeys();
                     }
                 }
@@ -513,10 +527,9 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         }
     }
 
-    private void LaunchNextActivity()
-    {
+    private void LaunchNextActivity() {
         Intent i = new Intent(PassCodeActivity.this, MainActivity.class);
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         ClickandPay.getInstance().StartTimerSession();
         finish();

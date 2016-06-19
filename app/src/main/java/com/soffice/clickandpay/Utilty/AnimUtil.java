@@ -1,5 +1,6 @@
 package com.soffice.clickandpay.Utilty;
 
+import android.content.Context;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,9 @@ import android.widget.TextView;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
+import com.soffice.clickandpay.R;
+
+import dmax.dialog.SpotsDialog;
 
 /**
  * Created by suryaashok.p on 09-12-2015.
@@ -163,7 +167,7 @@ public class AnimUtil
         AnimatorSet animatorSet=new AnimatorSet();
         animatorSet.setDuration(Duration);
         animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
-        animatorSet.playTogether(SlideOut,FadeOutAnim);
+        animatorSet.playTogether(SlideOut, FadeOutAnim);
         animatorSet.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animator) {
@@ -278,7 +282,7 @@ public class AnimUtil
         ObjectAnimator scaleYanim=ObjectAnimator.ofFloat(view,"scaleY",Val);
         ObjectAnimator fadeinanim=ObjectAnimator.ofFloat(view,"alpha",Val);
         AnimatorSet animatorSet=new AnimatorSet();
-        animatorSet.playTogether(scaleXanim,scaleYanim,fadeinanim);
+        animatorSet.playTogether(scaleXanim, scaleYanim, fadeinanim);
         animatorSet.setInterpolator(new LinearOutSlowInInterpolator());
         animatorSet.setDuration(Duration);
         animatorSet.setStartDelay(delay);
@@ -355,6 +359,35 @@ public class AnimUtil
         animatorSet.setInterpolator(new LinearOutSlowInInterpolator());
         animatorSet.setDuration(Duration);
         animatorSet.start();
+    }
+
+    /***
+     * Shows progress dialog
+     */
+    public SpotsDialog showProgressDialog(Context context, final String message) throws NullPointerException {
+
+        if (context != null) {
+
+            SpotsDialog dialog = new SpotsDialog(context, R.style.dialog);
+            dialog.show();
+            dialog.setCancelable(false);
+
+            dialog.setMessage(message);
+            return dialog;
+        }
+        return null;
+
+    }
+
+    /***
+     * Dismisses the progress dialog
+     * check for progress dialog null and showing or not
+     */
+    public void dismissProgressDialog(SpotsDialog dialog) {
+
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
+        }
     }
 
 
