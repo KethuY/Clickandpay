@@ -71,8 +71,10 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         requester = new JsonRequester(this);
         urls = clickpay.getUrls();
         fromActivity = getIntent().getStringExtra("fromActivity");
-        if (getIntent().hasExtra("user_status")) {
+        if (getIntent().hasExtra("user_status") && getIntent().getStringExtra("user_status") != null) {
             userStatus = Integer.parseInt(getIntent().getStringExtra("user_status"));
+        } else {
+            userStatus = 1;
         }
 
         passCode1 = (ImageView) findViewById(R.id.passcode1);

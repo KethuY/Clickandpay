@@ -7,7 +7,7 @@ public class Urls {
 
     /* Home URLS */
 //    public  static final String homeUrl = "https://clknpay.com/cnpmobile/api/";
-    public static final String homeUrl="http://52.77.228.209/cnpmobile/api/";
+   public static final String homeUrl="http://52.77.228.209/cnpmobile/api/";
 
     /* SignUp URLS */
     public static final String userSignUp_methodName = "userSignUp";
@@ -23,7 +23,7 @@ public class Urls {
 
     /* Verification URLS*/
     public static final String otpVerification_methodName = "otpVerification";
-    public static final String otpVerification = homeUrl+userRegister_methodName+"/otpVerification";
+    public static final String otpVerification = homeUrl+userSignUp_methodName+"/otpVerification";
 
     /* Set Passcode URLS*/
     public static final String passcode_methodName = "passcode";
