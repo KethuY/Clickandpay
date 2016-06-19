@@ -281,13 +281,13 @@ public class VerificationActivity extends AppCompatActivity implements TaskListn
                     int slength = otp_EditText.length();
                     if (slength > 0) {
                         //get the last character of the input
-                        String selection = otp_EditText.getText().toString().substring(slength - 1, slength);
+                        String selection = otp_EditText.getText().toString().substring(0, slength - 1);
                         Log.e("Selection", selection);
 
-                        String result = otp_EditText.getText().toString().replace(selection, "");
-                        Log.e("Result", result);
+//                        String result = otp_EditText.getText().toString().replace(selection, "");
+//                        Log.e("Result", result);
 
-                        otp_EditText.setText(result);
+                        otp_EditText.setText(selection);
                         otp_EditText.setSelection(otp_EditText.getText().length());
                         if (otp_EditText.getText().toString().length() == 6) {
                             done.setImageResource(R.drawable.yes_icon_hover);

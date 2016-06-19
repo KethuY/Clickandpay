@@ -190,13 +190,13 @@ public class MobileRegistrationActivity extends AppCompatActivity implements Tas
                     int slength = userInput.length();
                     if (slength > 0) {
                         //get the last character of the input
-                        String selection = userInput.getText().toString().substring(slength - 1, slength);
+                        String selection = userInput.getText().toString().substring(0,slength - 1);
                         Log.e("Selection", selection);
 
-                        String result = userInput.getText().toString().replace(selection, "");
-                        Log.e("Result", result);
+                       // String result = userInput.getText().toString().replace(selection, "");
+                        //Log.e("Result", result);
 
-                        userInput.setText(result);
+                        userInput.setText(selection);
                         userInput.setSelection(userInput.getText().length());
                         if (userInput.getText().toString().length() == 10) {
                             done.setImageResource(R.drawable.yes_icon_hover);
