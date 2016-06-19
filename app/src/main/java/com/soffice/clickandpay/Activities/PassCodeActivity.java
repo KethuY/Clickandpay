@@ -115,19 +115,23 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         if (fromActivity.equalsIgnoreCase("Splash") || fromActivity.equalsIgnoreCase("Login")) {
             back_IV.setVisibility(View.GONE);
             tv1.setText("Enter Passcode");
+            tv3.setVisibility(View.GONE);
             forgot_passcode_layout.setVisibility(View.VISIBLE);
         } else if (fromActivity.equalsIgnoreCase("Verification")) {
             back_IV.setVisibility(View.GONE);
             if (userStatus == 1) {
                 tv1.setText("Enter Passcode");
                 tv3.setVisibility(View.GONE);
+                forgot_passcode_layout.setVisibility(View.VISIBLE);
             } else {
                 tv1.setText("Enter New Passcode");
+                back_IV.setVisibility(View.VISIBLE);
                 tv3.setVisibility(View.VISIBLE);
             }
         } else if (fromActivity.equalsIgnoreCase("Main")) {
             back_IV.setVisibility(View.GONE);
             tv1.setText("Enter Passcode");
+            tv3.setVisibility(View.GONE);
             forgot_passcode_layout.setVisibility(View.VISIBLE);
         } else if (fromActivity.equalsIgnoreCase("Login_veri")) {
             back_IV.setVisibility(View.VISIBLE);
