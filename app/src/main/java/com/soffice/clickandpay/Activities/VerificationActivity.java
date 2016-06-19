@@ -174,6 +174,12 @@ public class VerificationActivity extends AppCompatActivity implements TaskListn
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 Display.DisplayLogI("ADITYA", "onTextChanged onTextChanged " + count);
                 otp_code = otp_EditText.getText().toString();
+                if(otp_code.length() == 6) {
+                    done.setImageResource(R.drawable.yes_icon_hover);
+                }else{
+                    done.setImageResource(R.drawable.yes_icon_normal);
+
+                }
             }
 
             @Override

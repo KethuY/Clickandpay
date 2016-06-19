@@ -404,7 +404,7 @@ public class ForgetPassWordOrPassCodeActivity extends AppCompatActivity implemen
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                Intent intent = new Intent(ForgetPassWordOrPassCodeActivity.this, LoginActivity.class);
+                                Intent intent = new Intent(ForgetPassWordOrPassCodeActivity.this, MobileRegistrationActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                                 finish();

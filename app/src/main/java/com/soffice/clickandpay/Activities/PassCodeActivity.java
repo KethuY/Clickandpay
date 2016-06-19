@@ -40,7 +40,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
     SessionManager session;
     JsonRequester requester;
     Urls urls;
-    ImageView passCode1, passCode2, passCode3, passCode4, backSpace, back_IV;
+    ImageView passCode1, passCode2, passCode3, passCode4, backSpace, back_IV, done;
     TextView key1, key2, key3, key4, key5, key6, key7, key8, key9, key0, tv1, tv3;
     View.OnClickListener clickEventOnKeys;
     View.OnClickListener clickEventOnKeysConform;
@@ -80,6 +80,8 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         passCode3 = (ImageView) findViewById(R.id.passcode3);
         passCode4 = (ImageView) findViewById(R.id.passcode4);
         backSpace = (ImageView) findViewById(R.id.backSpace);
+        done = (ImageView) findViewById(R.id.done);
+
         back_IV = (ImageView) findViewById(R.id.back_IV);
         tv1 = (TextView) findViewById(R.id.tv1);
         tv3 = (TextView) findViewById(R.id.tv3);
@@ -129,6 +131,14 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
             back_IV.setVisibility(View.VISIBLE);
         }
 
+
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         clickEventOnKeys = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,6 +153,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                         passCode3.setImageResource(R.drawable.passcode_fill);
                     } else if (enteredCode.length() == 4) {
                         passCode4.setImageResource(R.drawable.passcode_fill);
+                        done.setImageResource(R.drawable.yes_icon_hover);
                         if ((fromActivity.equalsIgnoreCase("Verification") && userStatus == 0) || fromActivity.equalsIgnoreCase("Login_veri")) {
                             handler.postDelayed(new Runnable() {
                                 @Override
@@ -230,6 +241,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                         passCode4.setImageResource(R.drawable.passcode_empty);
 
                     }
+                    done.setImageResource(R.drawable.yes_icon_normal);
                     isRemoving = false;
                     backSpace.setEnabled(true);
                 }
@@ -242,6 +254,8 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                 conformEnteredCode = removeLastChar(conformEnteredCode);
                 if (conformEnteredCode.length() < 4) {
                     enableKeys();
+                } else {
+                    done.setImageResource(R.drawable.yes_icon_hover);
                 }
                 if (conformEnteredCode.length() == 1) {
                     passCode2.setImageResource(R.drawable.passcode_empty);
@@ -441,6 +455,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         passCode2.setImageResource(R.drawable.passcode_empty);
         passCode3.setImageResource(R.drawable.passcode_empty);
         passCode4.setImageResource(R.drawable.passcode_empty);
+        done.setImageResource(R.drawable.yes_icon_normal);
         enteredCode = "";
     }
 
@@ -457,7 +472,8 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
         key0.setEnabled(false);
         backSpace.setEnabled(false);
         back_IV.setEnabled(false);
-        Pbar.setVisibility(View.VISIBLE);
+
+        //  Pbar.setVisibility(View.VISIBLE);
     }
 
     public String removeLastChar(String str) {
