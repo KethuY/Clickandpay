@@ -67,7 +67,6 @@ public class MobileRegistrationActivity extends AppCompatActivity implements Tas
         setContentView(R.layout.activity_registration_mobile);
         utils = new AnimUtil();
         userInput = (EditText) findViewById(R.id.signupMobileNumberET);
-        appended = (EditText) findViewById(R.id.appended);
 
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.mycoordinator);
         className = getLocalClassName();
@@ -83,14 +82,7 @@ public class MobileRegistrationActivity extends AppCompatActivity implements Tas
                 return true;
             }
         });
-        appended.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                hideDefaultKeyboard();
 
-                return true;
-            }
-        });
 
 //        CustomKeyboard mCustomKeyboard1 = new CustomKeyboard(this,
 //                R.id.keyboardview1, R.layout.custom_keypad);
