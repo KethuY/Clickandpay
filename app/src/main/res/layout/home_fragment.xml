@@ -101,44 +101,49 @@
 
                     </TableRow>
 
-                    <TableRow
-                        android:id="@+id/addMoney_tableRow"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center">
+                        android:layout_below="@id/walletbancerow"
+                        android:orientation="horizontal">
 
-                        <LinearLayout
+                        <TableRow
+                            android:id="@+id/addMoney_tableRow"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="30dp"
-                            android:layout_weight="1"
-                            android:gravity="center">
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="0.1">
 
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:scaleType="centerInside"
-                                android:src="@mipmap/ic_home_screen_add_money" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="20dp"
+                                android:layout_weight="5"
+                                android:gravity="center">
 
-                            <com.soffice.clickandpay.UI.RobotoRegularTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="bottom"
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:scaleType="centerInside"
+                                    android:src="@mipmap/ic_home_screen_add_money" />
 
-                                android:text="Add Money"
-                                android:textColor="@color/colorPrimaryDark"
-                                android:textSize="14sp" />
-                        </LinearLayout>
+                                <com.soffice.clickandpay.UI.RobotoRegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="bottom"
+                                    android:text="Add Money"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </TableRow>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="12dp"
-                            android:layout_weight="6"
                             android:gravity="right"
+                            android:layout_weight="0.6"
                             android:orientation="vertical">
 
                             <com.soffice.clickandpay.UI.RobotoRegularTextView
@@ -157,9 +162,9 @@
 
 
                         </LinearLayout>
+                    </LinearLayout>
 
 
-                    </TableRow>
                 </RelativeLayout>
             </RelativeLayout>
 

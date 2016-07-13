@@ -14,6 +14,8 @@ public class ProfilePojo {
     public String connectedAccountTwitter;
     @SerializedName("dateOfBirth")
     public String dateOfBirth;
+    @SerializedName("dob")
+    public String dob;
     @SerializedName("deviceid")
     public String deviceid;
     @SerializedName("emailId")
@@ -24,6 +26,8 @@ public class ProfilePojo {
     public String password;
     @SerializedName("userMobile")
     public String userMobile;
+    @SerializedName("gender")
+    public String userGender;
     @SerializedName("userName")
     public String userName;
     @SerializedName("userReferralCode")

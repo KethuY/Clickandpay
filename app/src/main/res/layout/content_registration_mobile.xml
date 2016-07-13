@@ -115,7 +115,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="80dp"
                 android:padding="10dp"
                 android:text="+91"
                 android:textColor="@color/white"
@@ -149,8 +149,8 @@
             android:layout_height="0.8dp"
             android:layout_below="@+id/abount_ll"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
             android:layout_marginTop="5dp"
             android:background="@color/white"
             android:textSize="40sp" />

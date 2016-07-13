@@ -203,7 +203,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                                 params.put("authkey", session.getAuthKey());
                                 params.put("mid", clickpay.getDeviceId(getApplicationContext()));
                                 params.put("passcode", Utils.EncryptData(enteredCode));
-                                params.put("version", Constants.App_Version);
+                               // params.put("version", Constants.App_Version);
                                 requester.StringRequesterFormValues(urls.passcode, Request.Method.POST, className, urls.passcode_methodName, params, REQUEST_TAG);
                                 disableKeys();
                                 tv1.setText("Please wait..");

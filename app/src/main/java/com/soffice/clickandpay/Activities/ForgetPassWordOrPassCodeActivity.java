@@ -274,7 +274,7 @@ public class ForgetPassWordOrPassCodeActivity extends AppCompatActivity implemen
             Map<String,String> params=new HashMap<>();
             params.put("authkey",which==1?"":session.getAuthKey());
             params.put("mobiorpass",MobilenoEt.getText().toString());
-            params.put("dob",dob);
+//            params.put("dob",dob);
             jsonRequester.StringRequesterFormValues(which==1? Urls.forgot_password_url:Urls.forgot_passcode_url, Request.Method.POST,ClassName,which==1?Urls.forgot_password_method:Urls.forgot_passcode_method,
                                     params,REQUEST_TAG);
 
