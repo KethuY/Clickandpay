@@ -113,16 +113,7 @@ public class VerificationActivity extends AppCompatActivity implements TaskListn
         back_IV = (ImageView) findViewById(R.id.back_IV);
         ok_IV = (ImageView) findViewById(R.id.ok_IV);
         phn_TV = (TextView) findViewById(R.id.phn_TV);
-        backspace.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                int i;
-                for (i = otp_EditText.length(); i >= 0; i--) {
-                    backspace.performClick();
-                }
-                return true;
-            }
-        });
+
 
         phn_TV.setText(session.getMobileNum());
 
@@ -165,6 +156,16 @@ public class VerificationActivity extends AppCompatActivity implements TaskListn
         }
 
         backspace.setOnClickListener(clickListener);
+        backspace.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int i;
+                for (i = otp_EditText.length(); i >= 0; i--) {
+                    backspace.performClick();
+                }
+                return true;
+            }
+        });
         done.setOnClickListener(clickListener);
         otp_EditText.setOnTouchListener(new View.OnTouchListener() {
             @Override

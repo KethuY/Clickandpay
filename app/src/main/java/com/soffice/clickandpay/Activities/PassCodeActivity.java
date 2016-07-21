@@ -127,6 +127,8 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                 tv1.setText("Enter New Passcode");
                 back_IV.setVisibility(View.VISIBLE);
                 tv3.setVisibility(View.VISIBLE);
+                forgot_passcode_layout.setVisibility(View.GONE);
+
             }
         } else if (fromActivity.equalsIgnoreCase("Main")) {
             back_IV.setVisibility(View.GONE);

@@ -6,9 +6,9 @@ package com.soffice.clickandpay.NetWork;
 public class Urls {
 
     /* Home URLS */
-//    public  static final String homeUrl = "https://clknpay.com/cnpmobile/api/";
-//    public static final String homeUrl = "http://52.77.228.209/cnpmobile/api/";
-    public static final String homeUrl = "http://dev.clickandpayindia.com/cnpmobile/api/";
+ public  static final String homeUrl = "https://clknpay.com/cnpmobile/api/";
+//   public static final String homeUrl = "http://52.77.228.209/cnpmobile/api/";
+//    public static final String homeUrl = "http://dev.clickandpayindia.com/cnpmobile/api/";
 
     /* SignUp URLS */
     public static final String userSignUp_methodName = "userSignUp";

@@ -74,7 +74,6 @@
                 android:layout_height="45dp"
                 android:layout_below="@+id/signInDetails_label"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:visibility="visible">
 
@@ -91,11 +90,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="50dp"
+                    android:background="@null"
                     android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 "
                     android:gravity="center_vertical"
                     android:text="Vidyaditya Malladi"
                     android:textColor="@color/lightBlack"
                     android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/profileName"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#CCCCCC" />
+
 
                 <!--<ImageView
                     android:id="@+id/userName_edit"
@@ -131,10 +141,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="50dp"
+                    android:background="@null"
                     android:enabled="false"
                     android:gravity="center_vertical"
                     android:textColor="@color/lightBlack"
                     android:textSize="14sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/profileDob"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#CCCCCC" />
+
                 <!--<ImageView
                     android:id="@+id/dob_edit"
                     android:layout_width="50dp"
@@ -210,9 +230,9 @@
                 android:layout_below="@+id/save_BTN"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:visibility="gone"
                 android:layout_marginTop="10dp"
-                android:background="#CCCCCC" />
+                android:background="#CCCCCC"
+                android:visibility="gone" />
 
 
             <RelativeLayout
@@ -221,7 +241,6 @@
                 android:layout_height="45dp"
                 android:layout_below="@+id/userName_row"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:visibility="visible">
 
@@ -238,10 +257,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="50dp"
+                    android:background="@null"
                     android:enabled="true"
                     android:gravity="center_vertical"
                     android:textColor="@color/lightBlack"
                     android:textSize="14sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/profileEmail"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#CCCCCC" />
 
 
                 <!--<ImageView
@@ -278,10 +306,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="50dp"
+                    android:background="@null"
                     android:enabled="false"
                     android:gravity="center_vertical"
                     android:textColor="@color/lightBlack"
                     android:textSize="14sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/profilePhn"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#CCCCCC" />
+
 
                 <!--<ImageView
                     android:id="@+id/phoneNo_edit"
@@ -310,8 +348,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_weight="1"
-                    android:padding="5dp"
                     android:gravity="center_vertical"
+                    android:padding="5dp"
                     android:visibility="visible">
 
                     <ImageView
@@ -354,8 +392,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_weight="1"
-                    android:padding="5dp"
                     android:gravity="center_vertical"
+                    android:padding="5dp"
                     android:visibility="visible">
 
                     <ImageView
@@ -511,8 +549,8 @@
         android:paddingLeft="25dp"
         android:paddingRight="20dp"
         android:paddingTop="8dp"
-        android:textAllCaps="false"
         android:text="Logout"
+        android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="14sp" />
 

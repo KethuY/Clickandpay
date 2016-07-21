@@ -12,6 +12,7 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
@@ -53,9 +54,9 @@ public class ProfileSettings extends AppCompatActivity implements TaskListner {
     String className;
     ImageView settings_IV, userName_edit, emailId_edit, phoneNo_edit, dob_edit, ic_gender, password_edit,
             passcode_edit, facebook_switch_edit, twitter_switch_edit, back_IV;
-    TextView  profileGender;
+    TextView profileGender;
     AppCompatButton save_BTN, LogoutOpt;
-    EditText profileName,profileEmail, profilePhn, profileDob;
+    EditText profileName, profileEmail, profilePhn, profileDob;
     private RelativeLayout maleLayout, femaleLayout;
     private ImageView maleImage, femaleImage;
     private int gender;
@@ -118,6 +119,7 @@ public class ProfileSettings extends AppCompatActivity implements TaskListner {
         profileGender.setVisibility(View.GONE);
         ic_gender.setVisibility(View.GONE);
         profileEmail.setEnabled(true);
+        profileDob.setText("");
 
         maleLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,7 +167,11 @@ public class ProfileSettings extends AppCompatActivity implements TaskListner {
         save_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String dob = null;
+                if (TextUtils.isEmpty(profileDob.getText()) || profileDob.getText().toString().trim().equals("00-00-0000")) {
+                    Display.DisplayToast(getApplicationContext(), "Please enter a valid Date of Birth ");
+                    return;
+                }
+                String dob = "";
                 spotsDialog = utils.showProgressDialog(ProfileSettings.this, "Please wait...");
 
                 try {
@@ -239,12 +245,20 @@ public class ProfileSettings extends AppCompatActivity implements TaskListner {
             SimpleDateFormat actualformat = new SimpleDateFormat("yyyy-MM-dd");
             SimpleDateFormat requiredformat = new SimpleDateFormat("dd-MM-yyyy");
             try {
-                if (!TextUtils.isEmpty(model1.dateOfBirth)) {
+                if (!TextUtils.isEmpty(model1.dateOfBirth) && !model1.dateOfBirth.equals("0000-00-00")) {
                     Date Actual = actualformat.parse(model1.dateOfBirth);
                     String Required = requiredformat.format(Actual);
                     profileDob.setText(Required);
                     profileDob.setEnabled(false);
+//                } else if (model1.dateOfBirth.equals("0000-00-00")) {
+//                    Date Actual = actualformat.parse(model1.dateOfBirth);
+//                    String Required = requiredformat.format(Actual);
+//                    profileDob.setEnabled(true);
+//                    profileDob.setText(Required);
                 } else {
+
+//                    Date Actual = actualformat.parse("0000-00-00");
+//                    String Required = requiredformat.format(Actual);
                     profileDob.setEnabled(true);
                     profileDob.setText("");
                 }
@@ -382,14 +396,22 @@ public class ProfileSettings extends AppCompatActivity implements TaskListner {
                             SimpleDateFormat actualformat = new SimpleDateFormat("yyyy-MM-dd");
                             SimpleDateFormat requiredformat = new SimpleDateFormat("dd-MM-yyyy");
                             try {
-                                if (!TextUtils.isEmpty(model1.dateOfBirth)) {
+                                if (!TextUtils.isEmpty(model1.dateOfBirth) && !model1.dateOfBirth.equals("0000-00-00")) {
                                     Date Actual = actualformat.parse(model1.dateOfBirth);
                                     String Required = requiredformat.format(Actual);
                                     profileDob.setText(Required);
                                     profileDob.setEnabled(false);
+//                                } else if (model1.dateOfBirth.equals("0000-00-00")) {
+//                                    Date Actual = actualformat.parse(model1.dateOfBirth);
+//                                    String Required = requiredformat.format(Actual);
+//                                    profileDob.setEnabled(true);
+//                                    profileDob.setText(Required);
                                 } else {
-                                    profileDob.setEnabled(true);
+
+                                    //   Date Actual = actualformat.parse("0000-00-00");
+                                    // String Required = requiredformat.format(Actual);
                                     profileDob.setText("");
+                                    profileDob.setEnabled(true);
                                 }
                             } catch (ParseException e) {
                                 e.printStackTrace();
@@ -426,15 +448,27 @@ public class ProfileSettings extends AppCompatActivity implements TaskListner {
     public void populateSetDate(int year, int month, int day) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date strDate = null;
+        String days = "00";
+        String months = "00";
         try {
-            strDate = sdf.parse(day + "/" + month + "/" + year);
+            if (day < 10) {
+                days = "0" + day;
+            } else {
+                days = "" + day;
+            }
+            if (month < 10) {
+                months = "0" + month;
+            } else {
+                months = "" + month;
+            }
+            strDate = sdf.parse(days + "/" + months + "/" + year);
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
         Display.DisplayLogI("ADITYA", "ERRE " + new Date().after(strDate));
         if (new Date().after(strDate)) {
-            profileDob.setText(day + "/" + month + "/" + year);
+            profileDob.setText(days + "-" + months + "-" + year);
         } else {
             Display.DisplayLogI("ADITYA", "ERRE");
             Display.DisplayToast(getApplicationContext(), "Date of Birth can not be a future date");
