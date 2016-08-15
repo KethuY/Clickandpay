@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -113,6 +114,7 @@ public class VerificationActivity extends AppCompatActivity implements TaskListn
         ok_IV = (ImageView) findViewById(R.id.ok_IV);
         phn_TV = (TextView) findViewById(R.id.phn_TV);
 
+
         phn_TV.setText(session.getMobileNum());
 
         /*getStartedLayout.setOnClickListener(new View.OnClickListener() {
@@ -154,15 +156,31 @@ public class VerificationActivity extends AppCompatActivity implements TaskListn
         }
 
         backspace.setOnClickListener(clickListener);
+        backspace.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int i;
+                for (i = otp_EditText.length(); i >= 0; i--) {
+                    backspace.performClick();
+                }
+                return true;
+            }
+        });
         done.setOnClickListener(clickListener);
         otp_EditText.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 hideDefaultKeyboard();
+
                 return true;
             }
         });
-
+        otp_EditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                return false;
+            }
+        });
 
         otp_EditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -174,9 +192,9 @@ public class VerificationActivity extends AppCompatActivity implements TaskListn
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 Display.DisplayLogI("ADITYA", "onTextChanged onTextChanged " + count);
                 otp_code = otp_EditText.getText().toString();
-                if(otp_code.length() == 6) {
+                if (otp_code.length() == 6) {
                     done.setImageResource(R.drawable.yes_icon_hover);
-                }else{
+                } else {
                     done.setImageResource(R.drawable.yes_icon_normal);
 
                 }
@@ -219,6 +237,8 @@ public class VerificationActivity extends AppCompatActivity implements TaskListn
                             Map<String, String> params = new HashMap<String, String>();
                             params.put("authkey", session.getAuthKey());
                             params.put("otp", otp_code);
+                            params.put("devicetype", "1");
+                            params.put("mid", clickpay.getDeviceId(getApplicationContext()));
                             requester.StringRequesterFormValues(urls.otpVerification, Request.Method.POST, className, urls.otpVerification_methodName, params, REQUEST_TAG);
                         }
                     } else {

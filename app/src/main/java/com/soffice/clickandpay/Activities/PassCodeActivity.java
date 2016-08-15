@@ -127,6 +127,8 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                 tv1.setText("Enter New Passcode");
                 back_IV.setVisibility(View.VISIBLE);
                 tv3.setVisibility(View.VISIBLE);
+                forgot_passcode_layout.setVisibility(View.GONE);
+
             }
         } else if (fromActivity.equalsIgnoreCase("Main")) {
             back_IV.setVisibility(View.GONE);
@@ -203,7 +205,7 @@ public class PassCodeActivity extends AppCompatActivity implements TaskListner {
                                 params.put("authkey", session.getAuthKey());
                                 params.put("mid", clickpay.getDeviceId(getApplicationContext()));
                                 params.put("passcode", Utils.EncryptData(enteredCode));
-                                params.put("version", Constants.App_Version);
+                               // params.put("version", Constants.App_Version);
                                 requester.StringRequesterFormValues(urls.passcode, Request.Method.POST, className, urls.passcode_methodName, params, REQUEST_TAG);
                                 disableKeys();
                                 tv1.setText("Please wait..");

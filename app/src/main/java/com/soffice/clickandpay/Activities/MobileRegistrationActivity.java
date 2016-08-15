@@ -120,6 +120,16 @@ public class MobileRegistrationActivity extends AppCompatActivity implements Tas
         }
 
         backspace.setOnClickListener(clickListener);
+        backspace.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int i;
+                for (i = userInput.length(); i >= 0; i--) {
+                    backspace.performClick();
+                }
+                return true;
+            }
+        });
         done.setOnClickListener(clickListener);
 
     }
@@ -182,10 +192,10 @@ public class MobileRegistrationActivity extends AppCompatActivity implements Tas
                     int slength = userInput.length();
                     if (slength > 0) {
                         //get the last character of the input
-                        String selection = userInput.getText().toString().substring(0,slength - 1);
+                        String selection = userInput.getText().toString().substring(0, slength - 1);
                         Log.e("Selection", selection);
 
-                       // String result = userInput.getText().toString().replace(selection, "");
+                        // String result = userInput.getText().toString().replace(selection, "");
                         //Log.e("Result", result);
 
                         userInput.setText(selection);
@@ -284,7 +294,7 @@ public class MobileRegistrationActivity extends AppCompatActivity implements Tas
 
     private void ServerCall() {
         if (Utils.CheckInternet(this)) {
-            utils.showProgressDialog(MobileRegistrationActivity.this, "Please wait");
+            spotsDialog = utils.showProgressDialog(MobileRegistrationActivity.this, "Please wait");
             Map<String, String> params = new HashMap<String, String>();
             params.put("version", Constants.App_Version);
             params.put("mobile", userInput.getText().toString().trim());

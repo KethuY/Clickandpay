@@ -119,6 +119,25 @@
         </LinearLayout>
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/forgot_passcode_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel11"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/forgot_passcode_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Forgot Passcode?"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -130,6 +149,7 @@
             android:id="@+id/passcodeKeys_Layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
@@ -335,22 +355,7 @@
                     android:src="@drawable/yes_icon_normal" />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/forgot_passcode_layout"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginBottom="30dp"
-                android:gravity="center_horizontal"
-                android:visibility="gone">
 
-                <com.soffice.clickandpay.UI.RobotoLightTextView
-                    android:id="@+id/forgot_passcode_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Forgot Passcode?"
-                    android:textColor="@color/button_tint" />
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -332,7 +332,9 @@ public class NearMeActivity extends AppCompatActivity implements AdapterView.OnI
 
     @Override
     public void OnRequestLocation() {
-        fab.setEnabled(false);
+        if(fab != null) {
+            fab.setEnabled(false);
+        }
     }
 
 

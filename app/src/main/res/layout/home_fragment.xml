@@ -105,16 +105,14 @@
                         android:id="@+id/addMoney_tableRow"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
+                        android:layout_below="@id/walletbancerow"
                         android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center">
+                        android:layout_weight="0.1">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="30dp"
-                            android:layout_weight="1"
+                            android:layout_weight="5"
                             android:gravity="center">
 
                             <ImageView
@@ -127,39 +125,41 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="bottom"
-
                                 android:text="Add Money"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp" />
                         </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="12dp"
-                            android:layout_weight="6"
-                            android:gravity="right"
-                            android:orientation="vertical">
-
-                            <com.soffice.clickandpay.UI.RobotoRegularTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="bottom"
-                                android:text="Powered by:"
-                                android:textColor="#000000"
-                                android:textSize="6sp" />
-
-                            <ImageView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="20dp"
-                                android:src="@mipmap/yes_bank_logo" />
-
-
-                        </LinearLayout>
-
-
                     </TableRow>
+
+                    <LinearLayout
+                        android:id="@+id/yesbank_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/walletbancerow"
+                        android:layout_alignRight="@id/walletbancerow"
+                        android:layout_marginRight="8dp"
+                        android:gravity="right"
+                        android:orientation="vertical"
+                        android:paddingTop="20dp">
+
+                        <com.soffice.clickandpay.UI.RobotoRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom"
+                            android:text="Powered by"
+                            android:textColor="#000000"
+                            android:textSize="6sp" />
+
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:src="@mipmap/yes_bank_logo" />
+
+
+                    </LinearLayout>
+
+
                 </RelativeLayout>
             </RelativeLayout>
 

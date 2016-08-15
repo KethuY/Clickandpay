@@ -370,7 +370,7 @@ public class AnimUtil
 
             SpotsDialog dialog = new SpotsDialog(context, R.style.dialog);
             dialog.show();
-            dialog.setCancelable(false);
+            dialog.setCancelable(true);
 
             dialog.setMessage(message);
             return dialog;

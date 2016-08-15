@@ -29,8 +29,8 @@
             android:background="@null"
             android:gravity="center_vertical"
             android:text="Profile"
-            android:textColor="@android:color/white"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:textColor="@android:color/white" />
 
         <ImageView
             android:id="@+id/settings_IV"
@@ -44,8 +44,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_below="@+id/backLayout"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/backLayout">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -55,7 +55,8 @@
                 android:id="@+id/signInDetails_label"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:visibility="gone">
 
                 <com.soffice.clickandpay.UI.RobotoRegularTextView
                     android:layout_width="match_parent"
@@ -63,38 +64,48 @@
                     android:layout_marginLeft="30dp"
                     android:gravity="center_vertical"
                     android:text="Personal Details"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/userName_row"
                 android:layout_width="match_parent"
+                android:layout_height="45dp"
                 android:layout_below="@+id/signInDetails_label"
-                android:layout_height="35dp"
-                android:visibility="visible"
                 android:layout_marginLeft="20dp"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:visibility="visible">
 
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
-                    app:srcCompat="@drawable/nav_username"/>
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/nav_username" />
 
                 <com.soffice.clickandpay.UI.RobotoRegularEditText
                     android:id="@+id/profileName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="50dp"
-                    android:gravity="center_vertical"
-                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 "
-                    android:text="Vidyaditya Malladi"
                     android:background="@null"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 "
+                    android:gravity="center_vertical"
+                    android:text="Vidyaditya Malladi"
                     android:textColor="@color/lightBlack"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/profileName"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#CCCCCC" />
+
 
                 <!--<ImageView
                     android:id="@+id/userName_edit"
@@ -111,30 +122,39 @@
             <RelativeLayout
                 android:id="@+id/dob_row"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/userName_row"
-                android:layout_height="35dp"
-                android:visibility="visible"
+                android:layout_height="45dp"
+                android:layout_below="@+id/phoneNo_row"
                 android:layout_marginLeft="20dp"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:visibility="visible">
 
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
-                    app:srcCompat="@drawable/nav_birthday"/>
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/nav_birthday" />
 
-                <com.soffice.clickandpay.UI.RobotoRegularTextView
+                <com.soffice.clickandpay.UI.RobotoRegularEditText
                     android:id="@+id/profileDob"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="50dp"
-                    android:gravity="center_vertical"
-                    android:text="23 - 05 - 1990"
-                    android:textColor="@color/lightBlack"
+                    android:background="@null"
                     android:enabled="false"
-                    android:textSize="14sp"/>
+                    android:gravity="center_vertical"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/profileDob"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#CCCCCC" />
+
                 <!--<ImageView
                     android:id="@+id/dob_edit"
                     android:layout_width="50dp"
@@ -151,30 +171,30 @@
             <RelativeLayout
                 android:id="@+id/transactionHistory_row"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/dob_row"
                 android:layout_height="35dp"
-                android:visibility="gone"
+                android:layout_below="@+id/dob_row"
                 android:layout_marginLeft="20dp"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/profileGenderIcon"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_alignParentLeft="true"/>
+                    android:layout_marginLeft="10dp" />
 
                 <com.soffice.clickandpay.UI.RobotoRegularTextView
                     android:id="@+id/profileGender"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="50dp"
+                    android:focusable="false"
                     android:gravity="center_vertical"
                     android:text="Male"
-                    android:focusable="false"
                     android:textColor="@color/lightBlack"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
                 <!--<ImageView
                     android:id="@+id/gender_edit"
                     android:layout_width="50dp"
@@ -188,58 +208,68 @@
             </RelativeLayout>
 
             <android.support.v7.widget.AppCompatButton
-                android:textSize="14.0sp"
-                android:textColor="@android:color/white"
                 android:id="@+id/save_BTN"
-                android:paddingLeft="20dp"
-                android:paddingTop="8dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_below="@+id/transactionHistory_row"
-                android:text="Save" />
+                android:layout_marginLeft="30dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="8dp"
+                android:text="Save"
+                android:textColor="@android:color/white"
+                android:textSize="14.0sp"
+                android:visibility="gone" />
 
 
             <TextView
                 android:id="@+id/divider1"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/save_BTN"
-                android:layout_marginTop="10dp"
                 android:layout_height="0.5dp"
+                android:layout_below="@+id/save_BTN"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="#CCCCCC"/>
+                android:layout_marginTop="10dp"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
 
 
             <RelativeLayout
                 android:id="@+id/emailId_row"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/divider1"
-                android:layout_height="35dp"
-                android:visibility="visible"
-                android:layout_marginTop="10dp"
+                android:layout_height="45dp"
+                android:layout_below="@+id/userName_row"
                 android:layout_marginLeft="20dp"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:visibility="visible">
 
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
-                    app:srcCompat="@drawable/nav_email"/>
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/nav_email" />
 
-                <com.soffice.clickandpay.UI.RobotoRegularTextView
+                <com.soffice.clickandpay.UI.RobotoRegularEditText
                     android:id="@+id/profileEmail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="50dp"
+                    android:background="@null"
+                    android:enabled="true"
                     android:gravity="center_vertical"
-                    android:text="aditya@mydomine.com"
                     android:textColor="@color/lightBlack"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/profileEmail"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#CCCCCC" />
 
 
                 <!--<ImageView
@@ -257,29 +287,39 @@
             <RelativeLayout
                 android:id="@+id/phoneNo_row"
                 android:layout_width="match_parent"
+                android:layout_height="45dp"
                 android:layout_below="@+id/emailId_row"
-                android:layout_height="35dp"
-                android:visibility="visible"
                 android:layout_marginLeft="20dp"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:visibility="visible">
 
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
-                    app:srcCompat="@drawable/nav_mobile_number"/>
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/nav_mobile_number" />
 
-                <com.soffice.clickandpay.UI.RobotoRegularTextView
+                <com.soffice.clickandpay.UI.RobotoRegularEditText
                     android:id="@+id/profilePhn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="50dp"
+                    android:background="@null"
+                    android:enabled="false"
                     android:gravity="center_vertical"
-                    android:text="+91 90009090099"
                     android:textColor="@color/lightBlack"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/profilePhn"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#CCCCCC" />
+
 
                 <!--<ImageView
                     android:id="@+id/phoneNo_edit"
@@ -293,24 +333,124 @@
                     android:src="@mipmap/edit"/>-->
             </RelativeLayout>
 
+            <LinearLayout
+                android:id="@+id/gender_layout_row"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@+id/dob_row"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:id="@+id/male_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/male_image"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:src="@mipmap/male_normal_state" />
+
+                    <com.soffice.clickandpay.UI.RobotoRegularTextView
+                        android:id="@+id/male_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/male_image"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toEndOf="@+id/male_image"
+                        android:layout_toRightOf="@+id/male_image"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:text="Male"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/male_gender"
+                        android:layout_marginLeft="60dp"
+
+                        android:layout_marginRight="30dp"
+                        android:background="#CCCCCC"
+                        android:gravity="center_vertical" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/female_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/female_image"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:src="@mipmap/female_normal_state" />
+
+                    <com.soffice.clickandpay.UI.RobotoRegularTextView
+                        android:id="@+id/female_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/female_image"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toEndOf="@+id/female_image"
+                        android:layout_toRightOf="@+id/female_image"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:text="Female"
+
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/female_gender"
+                        android:layout_marginLeft="60dp"
+
+                        android:layout_marginRight="30dp"
+                        android:background="#CCCCCC" />
+                </RelativeLayout>
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/divider2"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/phoneNo_row"
                 android:layout_height="0.5dp"
-                android:layout_marginTop="10dp"
+                android:layout_below="@+id/gender_layout_row"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="#CCCCCC"/>
+                android:layout_marginTop="10dp"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
 
             <RelativeLayout
                 android:id="@+id/password_row"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/divider2"
                 android:layout_height="35dp"
-                android:visibility="visible"
+                android:layout_below="@+id/divider2"
                 android:layout_marginTop="10dp"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:visibility="gone">
 
                 <com.soffice.clickandpay.UI.RobotoRegularTextView
                     android:layout_width="match_parent"
@@ -319,27 +459,28 @@
                     android:gravity="center_vertical"
                     android:text="Password  :       ******"
                     android:textColor="@color/lightBlack"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
                 <ImageView
                     android:id="@+id/password_edit"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:padding="12dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="40dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@mipmap/edit_go"/>
+                    android:padding="12dp"
+                    android:src="@mipmap/edit_go" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/passcode_row"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/password_row"
                 android:layout_height="35dp"
-                android:visibility="visible"
-                android:gravity="center_vertical">
+                android:layout_below="@+id/password_row"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:visibility="visible">
 
                 <com.soffice.clickandpay.UI.RobotoRegularTextView
                     android:layout_width="match_parent"
@@ -348,48 +489,70 @@
                     android:gravity="center_vertical"
                     android:text="Passcode  :       **** "
                     android:textColor="@color/lightBlack"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
                 <ImageView
                     android:id="@+id/passcode_edit"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="12dp"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="40dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@mipmap/edit_go"/>
+                    android:padding="6dp"
+                    android:src="@mipmap/edit_go" />
 
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/divider3"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/passcode_row"
                 android:layout_height="0.5dp"
-                android:layout_marginTop="10dp"
+                android:layout_below="@+id/passcode_row"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="#CCCCCC"/>
+                android:layout_marginTop="10dp"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
 
-            <android.support.v7.widget.AppCompatButton
-                    android:textSize="14sp"
-                    android:textColor="@android:color/white"
-                    android:id="@+id/logout"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="8dp"
-                    android:paddingRight="20dp"
-                    android:paddingBottom="8dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/divider3"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Logout" />
-
-         </RelativeLayout>
+        </RelativeLayout>
     </ScrollView>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/save_BTNx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="8dp"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="14.0sp" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/save_BTNx"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="20dp"
+        android:paddingTop="8dp"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
 
 
 </RelativeLayout>
