@@ -1,232 +1,355 @@
 <?xml version="1" encoding="utf-8"?>
-<RelativeLayout android:background="#fff2f2f2" android:layout_width="fill_parent" android:layout_height="fill_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/backLayout" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="?actionBarSize" android:layout_alignParentTop="true">
-        <ImageView android:id="@+id/back_IV" android:padding="8dp" android:layout_width="wrap_content" android:layout_height="fill_parent" app:srcCompat="@drawable/ic_back" />
-        <com.soffice.clickandpay.UI.RobotoLightTextView android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" android:textColor="@android:color/white" android:gravity="center_vertical" android:background="@null" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="5dp" android:text="Security Code" android:layout_centerHorizontal="true" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorPrimary"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
+        android:id="@+id/backLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_IV"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:padding="8dp"
+            app:srcCompat="@drawable/ic_back" />
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:text="Security Code"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:textColor="@android:color/white"
+            android:visibility="gone" />
     </RelativeLayout>
-    <RelativeLayout android:id="@+id/rel11" android:background="@android:color/white" android:paddingTop="10dp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@+id/backLayout">
-        <com.soffice.clickandpay.UI.RobotoLightTextView android:textSize="18sp" android:textColor="@color/text_color" android:id="@+id/tv1" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Enter New Passcode" android:layout_centerHorizontal="true" />
-        <ProgressBar android:id="@+id/pbar" android:visibility="gone" android:layout_width="20dp" android:layout_height="wrap_content" android:layout_marginRight="5dp" android:layout_toLeftOf="@+id/tv1" android:layout_alignTop="@+id/tv1" android:layout_alignBottom="@+id/tv1" />
-        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@+id/passcode_Layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginBottom="30dp" android:layout_below="@+id/tv1">
-            <ImageView android:id="@+id/passcode1" android:padding="3dp" android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/passcode_empty" />
-            <ImageView android:id="@+id/passcode2" android:padding="3dp" android:layout_width="20dp" android:layout_height="20dp" android:layout_marginLeft="30dp" android:layout_marginRight="30dp" android:src="@drawable/passcode_empty" />
-            <ImageView android:id="@+id/passcode3" android:padding="3dp" android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/passcode_empty" />
-            <ImageView android:id="@+id/passcode4" android:padding="3dp" android:layout_width="20dp" android:layout_height="20dp" android:layout_marginLeft="30dp" android:src="@drawable/passcode_empty" />
+
+    <RelativeLayout
+        android:id="@+id/rel11"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backLayout"
+        android:background="@color/colorPrimary"
+        android:paddingTop="10dp">
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:text="Enter New Passcode"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ProgressBar
+            android:id="@+id/pbar"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv1"
+            android:layout_alignTop="@+id/tv1"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/tv1"
+            android:visibility="visible" />
+
+        <com.soffice.clickandpay.UI.RobotoLightTextView
+            android:id="@+id/tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@null"
+            android:text="Your Passcode helps keep your account secure"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:id="@+id/passcode_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv1"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/passcode1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:padding="3dp"
+                android:src="@drawable/passcode_empty" />
+
+            <ImageView
+                android:id="@+id/passcode2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:padding="3dp"
+                android:src="@drawable/passcode_empty" />
+
+            <ImageView
+                android:id="@+id/passcode3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:padding="3dp"
+                android:src="@drawable/passcode_empty" />
+
+            <ImageView
+                android:id="@+id/passcode4"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:padding="3dp"
+                android:src="@drawable/passcode_empty" />
         </LinearLayout>
     </RelativeLayout>
-    <ScrollView 
-        android:background="@color/keypad_bg_color" 
-        android:layout_width="fill_parent" 
-        android:layout_height="wrap_content" 
-        android:layout_below="@+id/rel11" 
-        android:layout_alignParentBottom="true">
-        <LinearLayout 
-            android:gravity="center_horizontal" 
-            android:orientation="vertical" 
-            android:id="@+id/passcodeKeys_Layout" 
-            android:layout_width="fill_parent" 
-            android:layout_height="wrap_content" 
-            android:layout_marginLeft="40dp" 
-            android:layout_marginTop="10dp" 
-            android:layout_marginRight="40dp" 
-            android:layout_marginBottom="20dp">
-            <LinearLayout 
-                android:gravity="center_horizontal" 
-                android:orientation="horizontal" 
-                android:id="@+id/passKeyRow1_Layout" 
-                android:layout_width="fill_parent" 
-                android:layout_height="wrap_content" 
-                android:layout_marginLeft="5dp" 
-                android:layout_marginRight="5dp" 
-                android:layout_below="@+id/tv1">
-                <com.soffice.clickandpay.UI.RobotoLightTextView 
-                    android:textSize="35sp" 
-                    android:textColor="@color/red_end_color" 
-                    android:gravity="center" 
-                    android:id="@+id/key1" 
-                    android:tag="1" 
-                    android:background="@null" 
-                    android:padding="15dp" 
-                    android:layout_width="0dp" 
-                    android:layout_height="wrap_content" 
-                    android:text="1"
-                    android:layout_weight="1"  />
-                <com.soffice.clickandpay.UI.RobotoLightTextView 
-                    android:textSize="35sp" 
-                    android:textColor="@color/red_end_color" 
-                    android:gravity="center" android:id="@+id/key2"
-                    android:tag="2"
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/passcode_Layout"
+        android:background="@color/colorPrimary">
+
+        <LinearLayout
+            android:id="@+id/passcodeKeys_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/keypad_border"
+
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/passKeyRow1_Layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/key1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="@null"
+                    android:gravity="center"
                     android:padding="15dp"
+                    android:tag="1"
+                    android:text="1"
+                    android:textColor="@color/red_end_color"
+                    android:textSize="35sp" />
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/key2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
-                    android:text="2"
-                    android:layout_weight="0.6" />
-                <com.soffice.clickandpay.UI.RobotoLightTextView
-                    android:textSize="35sp"
-                    android:textColor="@color/red_end_color"
-                    android:gravity="center"
-                    android:id="@+id/key3"
-                    android:tag="3"
+                    android:layout_weight="0.6"
                     android:background="@null"
+                    android:gravity="center"
                     android:padding="15dp"
+                    android:tag="2"
+                    android:text="2"
+                    android:textColor="@color/red_end_color"
+                    android:textSize="35sp" />
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/key3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:tag="3"
                     android:text="3"
-                    android:layout_weight="1"  />
+                    android:textColor="@color/red_end_color"
+                    android:textSize="35sp" />
             </LinearLayout>
+
             <LinearLayout
-                android:gravity="center"
-                android:orientation="horizontal"
                 android:id="@+id/passKeyRow2_Layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp">
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
                 <com.soffice.clickandpay.UI.RobotoLightTextView
-                    android:textSize="35sp"
-                    android:textColor="@color/red_end_color"
-                    android:gravity="center"
                     android:id="@+id/key4"
-                    android:tag="4"
-                    android:background="@null"
-                    android:padding="15dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="4"
-                    android:layout_weight="1" />
-                <com.soffice.clickandpay.UI.RobotoLightTextView
-                    android:textSize="35sp"
-                    android:textColor="@color/red_end_color"
-                    android:gravity="center"
-                    android:id="@+id/key5"
-                    android:tag="5"
+                    android:layout_weight="1"
                     android:background="@null"
+                    android:gravity="center"
                     android:padding="15dp"
+                    android:tag="4"
+                    android:text="4"
+                    android:textColor="@color/red_end_color"
+                    android:textSize="35sp" />
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/key5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
-                    android:text="5"
-                    android:layout_weight="0.6" />
-                <com.soffice.clickandpay.UI.RobotoLightTextView
-                    android:textSize="35sp"
-                    android:textColor="@color/red_end_color"
-                    android:gravity="center"
-                    android:id="@+id/key6"
-                    android:tag="6"
+                    android:layout_weight="0.6"
                     android:background="@null"
+                    android:gravity="center"
                     android:padding="15dp"
+                    android:tag="5"
+                    android:text="5"
+                    android:textColor="@color/red_end_color"
+                    android:textSize="35sp" />
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/key6"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:tag="6"
                     android:text="6"
-                    android:layout_weight="1"  />
+                    android:textColor="@color/red_end_color"
+                    android:textSize="35sp" />
             </LinearLayout>
+
             <LinearLayout
-                android:gravity="center"
-                android:orientation="horizontal"
                 android:id="@+id/passKeyRow4_Layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp" >
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
                 <com.soffice.clickandpay.UI.RobotoLightTextView
-                    android:textSize="35sp"
-                    android:textColor="@color/red_end_color"
-                    android:gravity="center"
                     android:id="@+id/key7"
-                    android:tag="7"
-                    android:background="@null"
-                    android:padding="15dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="7"
-                    android:layout_weight="1"  />
-                <com.soffice.clickandpay.UI.RobotoLightTextView
-                    android:textSize="35sp"
-                    android:textColor="@color/red_end_color"
-                    android:gravity="center"
-                    android:id="@+id/key8"
-                    android:tag="8"
+                    android:layout_weight="1"
                     android:background="@null"
+                    android:gravity="center"
                     android:padding="15dp"
+                    android:tag="7"
+                    android:text="7"
+                    android:textColor="@color/red_end_color"
+                    android:textSize="35sp" />
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/key8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
-                    android:text="8"
-                    android:layout_weight="0.6"  />
-                <com.soffice.clickandpay.UI.RobotoLightTextView
-                    android:textSize="35sp"
-                    android:textColor="@color/red_end_color"
-                    android:gravity="center"
-                    android:id="@+id/key9"
-                    android:tag="9"
+                    android:layout_weight="0.6"
                     android:background="@null"
+                    android:gravity="center"
                     android:padding="15dp"
+                    android:tag="8"
+                    android:text="8"
+                    android:textColor="@color/red_end_color"
+                    android:textSize="35sp" />
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/key9"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:tag="9"
                     android:text="9"
-                    android:layout_weight="1" />
+                    android:textColor="@color/red_end_color"
+                    android:textSize="35sp" />
             </LinearLayout>
+
             <LinearLayout
-                android:gravity="center"
-                android:orientation="horizontal"
                 android:id="@+id/passKeyRow3_Layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp">
-                <com.soffice.clickandpay.UI.RobotoLightTextView
-                    android:textSize="35sp"
-                    android:textColor="@color/red_end_color"
-                    android:gravity="center"
-                    android:id="@+id/key10"
-                    android:background="@null"
-                    android:padding="20dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/backSpace"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-                <com.soffice.clickandpay.UI.RobotoLightTextView
-                    android:textSize="35sp"
-                    android:textColor="@color/red_end_color"
-                    android:gravity="center"
-                    android:id="@+id/key0"
-                    android:tag="0"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
                     android:background="@null"
-                    android:padding="15dp"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/ic_action_backspace" />
+
+                <com.soffice.clickandpay.UI.RobotoLightTextView
+                    android:id="@+id/key0"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
-                    android:text="0"
-                    android:layout_weight="0.6"  />
-                <ImageView
-                    android:id="@+id/backSpace"
+                    android:layout_weight="0.6"
                     android:background="@null"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:tag="0"
+                    android:text="0"
+                    android:textColor="@color/red_end_color"
+                    android:textSize="35sp" />
+
+                <ImageView
+                    android:id="@+id/done"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:src="@mipmap/ic_action_backspace"
+                    android:layout_weight="1"
+                    android:background="@null"
                     android:scaleType="fitCenter"
-                    android:layout_weight="1"  />
+                    android:src="@drawable/yes_icon_normal" />
             </LinearLayout>
+
             <LinearLayout
-                android:gravity="center_horizontal"
                 android:id="@+id/forgot_passcode_layout"
-                android:visibility="gone"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginBottom="30dp">
+                android:layout_marginBottom="30dp"
+                android:gravity="center_horizontal"
+                android:visibility="gone">
+
                 <com.soffice.clickandpay.UI.RobotoLightTextView
-                    android:textColor="@color/button_tint"
-                    android:layout_gravity="center"
                     android:id="@+id/forgot_passcode_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Forgot Passcode?" />
+                    android:layout_gravity="center"
+                    android:text="Forgot Passcode?"
+                    android:textColor="@color/button_tint" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

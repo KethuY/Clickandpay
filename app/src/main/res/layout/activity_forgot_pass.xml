@@ -85,6 +85,7 @@
                         android:textCursorDrawable="@drawable/red_cursor"
                         android:textSize="14sp"
                         android:padding="5dp"
+                        android:visibility="gone"
                         android:hint="@string/dob"
                         android:background="@drawable/roundedcorners_white"
                         />

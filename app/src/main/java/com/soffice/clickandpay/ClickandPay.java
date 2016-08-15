@@ -14,7 +14,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
-import com.soffice.clickandpay.Activities.LoginActivity;
+import com.soffice.clickandpay.Activities.MobileRegistrationActivity;
 import com.soffice.clickandpay.NetWork.Urls;
 import com.soffice.clickandpay.Utilty.LruBitmapCache;
 import com.soffice.clickandpay.Utilty.MyActivityLifeCycle;
@@ -37,14 +37,15 @@ public class ClickandPay extends Application {
     private Urls urls;
     private static SessionManager session;
     DataCenter datacenter;
-    public boolean IsAddMoneyStatus=false;
-    public boolean PaymentStatus=false;
-    public String AddedAmount="";
-    public boolean IsActive=true;
-    public boolean ShouldDisplayPasscode=false;
-    public boolean ShouldUpdateUsername=false;
+    public boolean IsAddMoneyStatus = false;
+    public boolean PaymentStatus = false;
+    public String AddedAmount = "";
+    public boolean IsActive = true;
+    public boolean ShouldDisplayPasscode = false;
+    public boolean ShouldUpdateUsername = false;
     Handler RedirectHandler = new Handler();
-    Handler sessionHandler=new Handler();
+    Handler sessionHandler = new Handler();
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -132,12 +133,12 @@ public class ClickandPay extends Application {
         }
 
 //        if (getSession() != null) {
-            if (getSession().getDeviceId() != null) {
-                return getSession().getDeviceId();
-            }else{
-                getSession().setDeviceId(MID);
-                return getSession().getDeviceId();
-            }
+        if (getSession().getDeviceId() != null) {
+            return getSession().getDeviceId();
+        } else {
+            getSession().setDeviceId(MID);
+            return getSession().getDeviceId();
+        }
 //        } else {
 //
 //        }
@@ -156,38 +157,30 @@ public class ClickandPay extends Application {
         }
     }
 
-    public void StartTimerSession()
-    {
-        ShouldDisplayPasscode=false;
+    public void StartTimerSession() {
+        ShouldDisplayPasscode = false;
         sessionHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(IsActive)
-                {
-                    sessionHandler.postDelayed(this,1*60*1000);
-                }
-                else
-                {
-                    ShouldDisplayPasscode=true;
+                if (IsActive) {
+                    sessionHandler.postDelayed(this, 1 * 60 * 1000);
+                } else {
+                    ShouldDisplayPasscode = true;
                 }
             }
-        },2*60*1000);
+        }, 2 * 60 * 1000);
     }
 
-    public void RedirectToLogin()
-    {
+    public void RedirectToLogin() {
         session.ClearAll();
-        final Intent localIntent = new Intent(this, LoginActivity.class);
-        localIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-        this.RedirectHandler.postDelayed(new Runnable()
-        {
-            public void run()
-            {
+        final Intent localIntent = new Intent(this, MobileRegistrationActivity.class);
+        localIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.RedirectHandler.postDelayed(new Runnable() {
+            public void run() {
                 ClickandPay.this.startActivity(localIntent);
             }
         }, 4000);
     }
-
 
 
 }

@@ -190,11 +190,11 @@ public class ForgetPassWordOrPassCodeActivity extends AppCompatActivity implemen
                     if (isNumeric(MobilenoEt.getText().toString())) {
                         if (MobilenoEt.getText().toString().length() == 10) {
                             if (MobilenoEt.getText().toString().charAt(0) == '7' || MobilenoEt.getText().toString().charAt(0) == '8' || MobilenoEt.getText().toString().charAt(0) == '9') {
-                                if (DobEt.getText().length() > 2) {
+                                //if (DobEt.getText().length() > 2) {
                                     OTPRequest();
-                                } else {
-                                    Utils.GenerateSnackbar(ForgetPassWordOrPassCodeActivity.this, coordinator, "Please enter your date of birth");
-                                }
+//                                } else {
+//                                    Utils.GenerateSnackbar(ForgetPassWordOrPassCodeActivity.this, coordinator, "Please enter your date of birth");
+//                                }
                             } else {
                                 Utils.GenerateSnackbar(ForgetPassWordOrPassCodeActivity.this, coordinator, "Please enter valid mobile number starts with 7, 8, 9");
                             }
@@ -204,11 +204,11 @@ public class ForgetPassWordOrPassCodeActivity extends AppCompatActivity implemen
                         }
                     } else {
                         if (isEmailValid(MobilenoEt.getText().toString())) {
-                            if (DobEt.getText().length() > 2) {
+                           // if (DobEt.getText().length() > 2) {
                                 OTPRequest();
-                            } else {
-                                Utils.GenerateSnackbar(ForgetPassWordOrPassCodeActivity.this, coordinator, "Please enter your date of birth");
-                            }
+//                            } else {
+//                                Utils.GenerateSnackbar(ForgetPassWordOrPassCodeActivity.this, coordinator, "Please enter your date of birth");
+//                            }
                         } else {
                             Utils.GenerateSnackbar(ForgetPassWordOrPassCodeActivity.this, coordinator, "Please Enter valid Email");
                             return;
@@ -404,7 +404,7 @@ public class ForgetPassWordOrPassCodeActivity extends AppCompatActivity implemen
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                Intent intent = new Intent(ForgetPassWordOrPassCodeActivity.this, LoginActivity.class);
+                                Intent intent = new Intent(ForgetPassWordOrPassCodeActivity.this, MobileRegistrationActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                                 finish();

@@ -28,7 +28,7 @@ public class InitialActivity extends AppCompatActivity {
         createAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(InitialActivity.this, RegisterActivity.class);
+                Intent i = new Intent(InitialActivity.this, MobileRegistrationActivity.class);
                 i.putExtra("fromActivity", "Initial");
                 startActivity(i);
                 finish();
@@ -38,7 +38,7 @@ public class InitialActivity extends AppCompatActivity {
         signInAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(InitialActivity.this, LoginActivity.class);
+                Intent i = new Intent(InitialActivity.this, MobileRegistrationActivity.class);
                 i.putExtra("fromActivity", "Initial");
                 startActivity(i);
                 finish();

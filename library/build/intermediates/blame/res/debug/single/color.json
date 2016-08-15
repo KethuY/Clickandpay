@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/anitha/Music/cnpApplication/library/build/intermediates/res/merged/debug/color/vpi__dark_theme.xml",
+        "source": "/home/anitha/Music/cnpApplication/library/src/main/res/color/vpi__dark_theme.xml"
+    },
+    {
+        "merged": "/home/anitha/Music/cnpApplication/library/build/intermediates/res/merged/debug/color/vpi__light_theme.xml",
+        "source": "/home/anitha/Music/cnpApplication/library/src/main/res/color/vpi__light_theme.xml"
+    }
+]

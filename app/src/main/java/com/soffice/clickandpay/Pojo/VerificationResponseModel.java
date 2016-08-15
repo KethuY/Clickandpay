@@ -12,4 +12,6 @@ public class VerificationResponseModel {
     public String message;
     @SerializedName("auth_key")
     public String key;
+    @SerializedName("USER_STATUS")
+    public String userStatus;
 }
