@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/backLayout"
+        android:layout_marginBottom="50dp"
+        android:background="#F2F2F2"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/colorPrimary">
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:paddingBottom="25dp"
+                    android:paddingTop="10dp"
+                    android:layout_marginTop="-40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+
+                        <com.soffice.clickandpay.UI.RobotoRegularTextView
+                            android:id="@+id/walletbalance_heading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:gravity="center"
+                            android:text="@string/wallet_balance"
+                            android:textColor="@color/lightBlack"
+                            android:textSize="18sp" />
+
+                        <TableRow
+                            android:id="@+id/walletbancerow"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/walletbalance_heading"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center">
+
+                            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Total"
+                                android:textColor="@color/lightBlack"
+                                android:textSize="14sp" />
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@mipmap/ic_home_screen_rupee" />
+
+                            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                                android:id="@+id/walletBal_Home"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginLeft="5dp"
+                                android:gravity="left|center_vertical"
+                                android:text="1999.50"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="36sp" />
+
+                        </TableRow>
+
+                        <LinearLayout
+                            android:id="@+id/yesbank_logo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@id/walletbancerow"
+                            android:layout_alignRight="@id/walletbancerow"
+                            android:layout_marginRight="8dp"
+                            android:gravity="right"
+                            android:orientation="vertical"
+                            android:paddingTop="20dp">
+                            <com.soffice.clickandpay.UI.RobotoRegularTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text="Powered by"
+                                android:textColor="#000000"
+                                android:textSize="6sp" />
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/yes_bank_logo" />
+                        </LinearLayout>
+                </RelativeLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>

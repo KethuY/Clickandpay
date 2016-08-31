@@ -2,25 +2,35 @@ package com.soffice.clickandpay.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +48,9 @@ import com.soffice.clickandpay.Pojo.Addmoney;
 import com.soffice.clickandpay.Pojo.NetBanks;
 import com.soffice.clickandpay.R;
 import com.soffice.clickandpay.UI.PagerSlidingTabStrip;
+import com.soffice.clickandpay.UI.RobotoLightTextView;
 import com.soffice.clickandpay.UI.RobotoRegularEditText;
+import com.soffice.clickandpay.UI.RobotoRegularTextView;
 import com.soffice.clickandpay.Utilty.AvenuesParams;
 import com.soffice.clickandpay.Utilty.Constants;
 import com.soffice.clickandpay.Utilty.Display;
@@ -61,7 +73,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-public class AddMoneyActivity extends AppCompatActivity implements TaskListner,RobotoRegularEditText.handleDismissingKeyboard
+public class AddMoneyActivity extends AppCompatActivity implements TaskListner,RobotoRegularEditText.handleDismissingKeyboard,TextWatcher
 {
 
     ClickandPay clickpay;
@@ -86,6 +98,9 @@ public class AddMoneyActivity extends AppCompatActivity implements TaskListner,R
     boolean isValidating=false;
     private final String REQUEST_TAG="addmoney_request";
     CoordinatorLayout coordinatorLayout;
+    LinearLayout PromoCodeLayout,PromoTextLayout;
+    TextInputLayout PromoInputLayout;
+    TextInputEditText PromoEt;
     String[] Titles={"Credit Card Payment","Debit Card Payment","Net Banking"};
 
     @Override
@@ -115,6 +130,28 @@ public class AddMoneyActivity extends AppCompatActivity implements TaskListner,R
         back_IV = (ImageView) findViewById(R.id.back_IV);
         walletBal_Home = (TextView) findViewById(R.id.walletBal_Home);
         addMoney_EditText = (RobotoRegularEditText) findViewById(R.id.addMoney_EditText);
+        PromoCodeLayout= (LinearLayout) findViewById(R.id.selectCardLayout);
+        PromoTextLayout= (LinearLayout) findViewById(R.id.promotextlayout);
+        PromoInputLayout= (TextInputLayout) findViewById(R.id.promotextinputlayout);
+        PromoEt= (TextInputEditText) findViewById(R.id.promotextet);
+        PromoEt.setAllCaps(true);
+        PromoEt.addTextChangedListener(this);
+        PromoEt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus)
+                {
+                    PromoInputLayout.setHint("Enter promo code");
+                }
+                else
+                {
+                    if(((TextInputEditText)v).getText().length()==0)
+                    {
+                        PromoInputLayout.setHint("Have promo code?");
+                    }
+                }
+            }
+        });
         addMoney_EditText.setHandleDismissingKeyboard(this);
         if (session.getWalletBal().equalsIgnoreCase("0") || !session.getWalletBal().contains(".")) {
             walletBal_Home.setText(session.getWalletBal() + ".00");
@@ -520,6 +557,26 @@ public class AddMoneyActivity extends AppCompatActivity implements TaskListner,R
                         }
                 }
 
+                if(_methodName.equalsIgnoreCase(Urls.promo_code_validation_method)&&_className.equalsIgnoreCase(getLocalClassName()))
+                {
+                    HideKeyBoard(PromoEt);
+                    Bundle bundle=ParsePromoData(response);
+                    //noinspection ConstantConditions
+                    if(bundle.getString("code").equalsIgnoreCase("200"))
+                    {
+                        RobotoLightTextView promomsg=new RobotoLightTextView(this);
+                        LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+                        promomsg.setLayoutParams(params);
+                        promomsg.setTextColor(Color.BLACK);
+                        promomsg.setText(bundle.getString("message"));
+                        if(PromoCodeLayout.getChildCount()>1)
+                        {
+                            PromoCodeLayout.removeViewAt(1);
+                        }
+                        PromoCodeLayout.addView(promomsg);
+                    }
+                }
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -532,7 +589,71 @@ public class AddMoneyActivity extends AppCompatActivity implements TaskListner,R
     }
 
     @Override
-    public void dismissKeyboard() {
+    public void dismissKeyboard()
+    {
+
+
+    }
+
+    private void HideKeyBoard(EditText et)
+    {
+        InputMethodManager imm= (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(et.getWindowToken(),0);
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            if(charSequence.length()==0)
+            {
+                PromoTextLayout.removeViewAt(2);
+            }
+        else
+            {
+                if(PromoTextLayout.getChildCount()==2) {
+                    AppCompatButton applybtn = new AppCompatButton(AddMoneyActivity.this);
+                    Utils.setButtonTint(applybtn, ContextCompat.getColorStateList(AddMoneyActivity.this, R.color.button_tint));
+                    Typeface typeface=Typeface.createFromAsset(getAssets(),"fonts/Roboto-Light.ttf");
+                    applybtn.setSupportAllCaps(true);
+                    applybtn.setTextColor(Color.WHITE);
+                    applybtn.setTypeface(typeface);
+                    applybtn.setText("Apply");
+                    applybtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ValidatePromoCode(PromoEt.getText().toString());
+                        }
+                    });
+                    PromoTextLayout.addView(applybtn);
+                }
+
+            }
+    }
+
+    private void ValidatePromoCode(String promo)
+    {
+        if(Utils.CheckInternet(this))
+        {
+                HashMap<String,String> postObj=new HashMap<>();
+                postObj.put("authkey",sessionManager.getAuthKey());
+                postObj.put("amount",addMoney_EditText.getText().toString());
+                postObj.put("couponcode",promo);
+                Display.DisplayLogD("Params",postObj.toString());
+                requester.StringRequesterFormValues(Urls.promo_code_validation, Request.Method.POST,getLocalClassName(),Urls.promo_code_validation_method,postObj,"promovalidation");
+
+        }
+        else
+        {
+            Utils.GenerateSnackbar(this,coordinatorLayout,"Please check your internet connection and try again.");
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
 
     }
 
@@ -559,5 +680,18 @@ public class AddMoneyActivity extends AppCompatActivity implements TaskListner,R
     protected void onDestroy() {
         super.onDestroy();
         ClickandPay.getInstance().cancelPendingRequests(REQUEST_TAG);
+    }
+
+    private Bundle ParsePromoData(String Data){
+        Bundle bundle=new Bundle();
+        try
+        {
+            JSONObject jobj=new JSONObject(Data);
+            bundle.putString("code",jobj.getString("CODE"));
+            bundle.putString("message",jobj.getString("MESSAGE"));
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        return bundle;
     }
 }
